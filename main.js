@@ -1,5 +1,4 @@
 (async () => {
-(async () => {
     const navGamesDiv = document.getElementById('navGames');
     if (navGamesDiv) {
         navGamesDiv.focus();
