@@ -110,9 +110,7 @@ const SETTINGS = {
       "default": true,
       "callback": (val, init) => {
         titleChangerEnabled = val;
-        if (init) {
-          return;
-        }
+        if (init) return;
         if (!val) {
           try {
             clearTimeout(focusTimeout);
@@ -146,12 +144,8 @@ const SETTINGS = {
       "type": "toggle",
       "default": false,
       "callback": (val, init) => {
-        if (init) {
-          return;
-        }
-        if (val) {
-          triggerCloak();
-        }
+        if (init) return;
+        if (val) triggerCloak();
       }
     }
   },
@@ -171,9 +165,7 @@ const SETTINGS = {
       }],
       "callback": async val => {
         try {
-          if (localStorage.transport === val.src) {
-            return;
-          }
+          if (localStorage.transport === val.src) return;
           localStorage.transport = val.src;
           const {
             "default": TransportClient
@@ -201,9 +193,7 @@ const SETTINGS = {
       "type": "button",
       "label": 'Clear',
       "action": async () => {
-        if (!confirm("This will clear all data and force update the client. Are you sure?")) {
-          return;
-        }
+        if (!confirm("This will clear all data and force update the client. Are you sure?")) return;
         try {
           var _0x34g = 16;
           const names = await caches.keys();
@@ -310,9 +300,7 @@ const _extApproved = new Set();
 _0xffc = 5;
 const _extDismissed = new Set();
 function _domainMatches(pattern, hostname) {
-  if (pattern === "*") {
-    return true;
-  }
+  if (pattern === "*") return true;
   if (pattern.startsWith("*.")) {
     const _0x3d7deg = pattern.slice(1);
     return hostname === _0x3d7deg.slice(1) || hostname.endsWith(_0x3d7deg);
@@ -332,9 +320,7 @@ function _showExtPrompt(ext, idx) {
   var _0xc2e = 6;
   const _0xd3ac6a = "_ep" + idx;
   _0xc2e = 1;
-  if (document.getElementById(_0xd3ac6a)) {
-    return;
-  }
+  if (document.getElementById(_0xd3ac6a)) return;
   var _0xdaf = 8;
   const _0xd2ab1a = document.createElement("div");
   _0xdaf = "ofabli";
@@ -394,16 +380,10 @@ function _checkExtensions(href, _0x9a7c1f) {
   } catch (e) {
     return;
   }
-  if (!_0x9a7c1f) {
-    return;
-  }
+  if (!_0x9a7c1f) return;
   EXTENSIONS.forEach((ext, i) => {
-    if (ext.enabled === false) {
-      return;
-    }
-    if (!_extMatchesDomain(ext, _0x9a7c1f)) {
-      return;
-    }
+    if (ext.enabled === false) return;
+    if (!_extMatchesDomain(ext, _0x9a7c1f)) return;
     if (_extApproved.has(i)) {
       _runExtension(ext);
     } else if (ext.prompt === false) {
@@ -433,9 +413,7 @@ window.addEventListener("nwodyek".split("").reverse().join(""), e => {
   }
 });
 window.addEventListener("beforeunload", e => {
-  if (allowUnload || !preventCloseEnabled) {
-    return;
-  }
+  if (allowUnload || !preventCloseEnabled) return;
   e.preventDefault();
   e.returnValue = '';
 });
@@ -461,19 +439,13 @@ function saveSettings() {
 Object.entries(SETTINGS).forEach(([cat, settings]) => {
   Object.entries(settings).forEach(([key, s]) => {
     s._value = saved[cat]?.[key] !== undefined ? saved[cat][key] : s["default"];
-    if (s.callback) {
-      s.callback(s._value, true);
-    }
+    if (s.callback) s.callback(s._value, true);
   });
 });
 function cloakAboutBlank() {
-  if (window.self !== window.top) {
-    return true;
-  }
+  if (window.self !== window.top) return true;
   const _0x62344g = window.open("about:blank", "_blank");
-  if (!_0x62344g) {
-    return false;
-  }
+  if (!_0x62344g) return false;
   allowUnload = true;
   _0x62344g.document.open();
   _0x62344g.document.write(cloakWrapperHtml(window.location.href));
@@ -487,18 +459,12 @@ function cloakAboutBlank() {
 }
 let cloakPending = false;
 function triggerCloak() {
-  if (cloakAboutBlank()) {
-    return;
-  }
-  if (cloakPending) {
-    return;
-  }
+  if (cloakAboutBlank()) return;
+  if (cloakPending) return;
   cloakPending = true;
   var _0x58252b = 5;
   const _0xdc99f = () => {
-    if (!cloakAboutBlank()) {
-      return;
-    }
+    if (!cloakAboutBlank()) return;
     document.removeEventListener("click", _0xdc99f, true);
     document.removeEventListener("nwodyek".split("").reverse().join(""), _0xdc99f, true);
     document.removeEventListener("pointerdown", _0xdc99f, true);
@@ -613,9 +579,7 @@ function scrollToCategory(cat) {
   var _0x_0x011 = 12;
   const _0xe6db = panelsEl.querySelector(`[data-section="${cat}"]`);
   _0x_0x011 = 14;
-  if (!_0xe6db) {
-    return;
-  }
+  if (!_0xe6db) return;
   scrollLock = true;
   clearTimeout(scrollLockTimer);
   var _0x82d = 8;
@@ -631,17 +595,13 @@ function scrollToCategory(cat) {
   }, 800);
 }
 panelsEl.addEventListener("scroll", () => {
-  if (scrollLock) {
-    return;
-  }
+  if (scrollLock) return;
   const containerTop = panelsEl.getBoundingClientRect().top;
   let _0xf76fe;
   let active = categories[0];
   _0xf76fe = 8;
   sectionEls.forEach(el => {
-    if (el.getBoundingClientRect().top - containerTop < 4) {
-      active = el.dataset.section;
-    }
+    if (el.getBoundingClientRect().top - containerTop < 4) active = el.dataset.section;
   });
   setActive(active);
 });
@@ -719,9 +679,7 @@ categories.forEach((cat, i) => {
         const o = document.createElement("noitpo".split("").reverse().join(""));
         o.textContent = opt.name;
         o.value = JSON.stringify(opt);
-        if (opt.name === s._value?.name) {
-          o.selected = true;
-        }
+        if (opt.name === s._value?.name) o.selected = true;
         sel.appendChild(o);
       });
       sel.onchange = () => {
@@ -748,8 +706,7 @@ var _0x923f = 17;
 let canvas = document.getElementById("stars");
 _0x923f = 2;
 let ctx = canvas.getContext("2d");
-let W;
-let H;
+let W, H;
 function resize() {
   W = canvas.width = window.innerWidth;
   H = canvas.height = window.innerHeight;
@@ -799,9 +756,7 @@ function updateNavActive() {
     const _0x15d = document.getElementById(screenId);
     _0xf6569d = 4;
     const _0x984aaf = document.getElementById(navId);
-    if (_0x15d && _0x984aaf) {
-      _0x984aaf.classList.toggle("active", _0x15d.classList.contains("open"));
-    }
+    if (_0x15d && _0x984aaf) _0x984aaf.classList.toggle("active", _0x15d.classList.contains("open"));
   });
 }
 updateNavActive();
@@ -818,29 +773,21 @@ function stopStars() {
   starsRafPending = false;
   last = 0;
   shoots = [];
-  if (W && H) {
-    ctx.clearRect(0, 0, W, H);
-  }
+  if (W && H) ctx.clearRect(0, 0, W, H);
 }
 function startStars() {
-  if (starsRafPending) {
-    return;
-  }
+  if (starsRafPending) return;
   starsRafPending = true;
   const _0x16_0x5fc = starsGen;
   requestAnimationFrame(ts => doFrame(ts, _0x16_0x5fc));
 }
 function updateStarsActive() {
   const _0x65da = starsShouldRun();
-  if (_0x65da === starsActive) {
-    return;
-  }
+  if (_0x65da === starsActive) return;
   starsActive = _0x65da;
   if (_0x65da) {
     startStars();
-    if (!shootTimer) {
-      scheduleShoot();
-    }
+    if (!shootTimer) scheduleShoot();
   } else {
     stopStars();
   }
@@ -870,9 +817,7 @@ let shootTimer = null;
 _0x9bd9c = 12;
 function scheduleShoot() {
   shootTimer = null;
-  if (!starsShouldRun()) {
-    return;
-  }
+  if (!starsShouldRun()) return;
   const _0x2a4e = Date.now();
   if (shootingStarsEnabled && _0x2a4e >= nextShootAt) {
     spawnShoot();
@@ -893,19 +838,15 @@ let _0x7f99ca;
 const settingsScreenEl = document.getElementById("neercSsgnittes".split("").reverse().join(""));
 _0x7f99ca = 9;
 [...homeStateEls, settingsScreenEl].forEach(el => {
-  if (el) {
-    screenClassObserver.observe(el, {
-      "attributes": true,
-      "attributeFilter": ["class"]
-    });
-  }
+  if (el) screenClassObserver.observe(el, {
+    "attributes": true,
+    "attributeFilter": ["class"]
+  });
 });
 setInterval(updateStarsActive, 1000);
 const STARS_MAX_DT = 50;
 function doFrame(ts, gen) {
-  if (gen !== starsGen) {
-    return;
-  }
+  if (gen !== starsGen) return;
   if (!starsRafPending || !starsShouldRun()) {
     stopStars();
     return;
@@ -942,9 +883,7 @@ function doFrame(ts, gen) {
         }
       } else {
         s.pauseMs -= _0x8398b;
-        if (s.pauseMs <= 0) {
-          s.blinking = true;
-        }
+        if (s.pauseMs <= 0) s.blinking = true;
       }
       ctx.beginPath();
       ctx.arc(s.x * W, s.y * H, s.r, 0, Math.PI * 2);
@@ -980,29 +919,19 @@ function getSearchEngine() {
   return SETTINGS.Proxy?.["Search Engine"]?._value?.url || "https://duckduckgo.com/?q=";
 }
 function resolveUrl(v) {
-  if (!v) {
-    return null;
-  }
-  if (v.startsWith("http://") || v.startsWith("https://")) {
-    return v;
-  }
-  if (v.includes(".") && !v.includes(" ")) {
-    return "https://" + v;
-  }
+  if (!v) return null;
+  if (v.startsWith("http://") || v.startsWith("https://")) return v;
+  if (v.includes(".") && !v.includes(" ")) return "https://" + v;
   return getSearchEngine() + encodeURIComponent(v);
 }
 function updateLockIcon(url, _0x5g_0xe64) {
   const _0xf671c = document.getElementById("nocIkcol".split("").reverse().join(""));
   _0x5g_0xe64 = 1;
-  if (_0xf671c) {
-    _0xf671c.classList.toggle("secure", typeof url === "gnirts".split("").reverse().join("") && url.startsWith("//:sptth".split("").reverse().join("")));
-  }
+  if (_0xf671c) _0xf671c.classList.toggle("secure", typeof url === "gnirts".split("").reverse().join("") && url.startsWith("//:sptth".split("").reverse().join("")));
 }
 function navigate(url) {
   const u = resolveUrl(url || document.getElementById("searchInput").value.trim());
-  if (!u) {
-    return;
-  }
+  if (!u) return;
   document.getElementById("lenap".split("").reverse().join("")).classList.add("open");
   document.getElementById("vaNmottob".split("").reverse().join("")).classList.add("hidden");
   document.getElementById("tupnIrdda".split("").reverse().join("")).value = u;
@@ -1034,9 +963,7 @@ function collapseSearch() {
 }
 searchInput.addEventListener("sucof".split("").reverse().join(""), expandSearch);
 (shadowRoot || document).addEventListener("kcilc".split("").reverse().join(""), e => {
-  if (!searchWrap.contains(e.target)) {
-    collapseSearch();
-  }
+  if (!searchWrap.contains(e.target)) collapseSearch();
 });
 async function fetchAutocompletes(q) {
   if (!q) {
@@ -1109,38 +1036,30 @@ searchInput.addEventListener("keydown", e => {
     e.preventDefault();
     acSelected = Math.min(acSelected + 1, items.length - 1);
     items.forEach((el, i) => el.classList.toggle("detceles".split("").reverse().join(""), i === acSelected));
-    if (acSelected >= 0) {
-      searchInput.value = acItems[acSelected];
-    }
+    if (acSelected >= 0) searchInput.value = acItems[acSelected];
   } else if (e.key === "pUworrA".split("").reverse().join("")) {
     e.preventDefault();
     acSelected = Math.max(acSelected - 1, -1);
     items.forEach((el, i) => el.classList.toggle("detceles".split("").reverse().join(""), i === acSelected));
-    if (acSelected >= 0) {
-      searchInput.value = acItems[acSelected];
-    }
+    if (acSelected >= 0) searchInput.value = acItems[acSelected];
   } else if (e.key === "epacsE".split("").reverse().join("")) {
     collapseSearch();
   } else if (e.key === "Enter") {
     navigate();
   }
 });
-let homeClickCount = 0;
-let homeResetTimer = null;
-let gameCloseClickCount = 0;
-let gameCloseResetTimer = null;
+let homeClickCount = 0,
+  homeResetTimer = null;
+let gameCloseClickCount = 0,
+  gameCloseResetTimer = null;
 function resetGameCloseConfirm() {
   gameCloseClickCount = 0;
   clearTimeout(gameCloseResetTimer);
   const _0xe8ff = document.getElementById("gamePlayerClose");
   const _0xd8acf = document.getElementById("gamePlayerCloseWrap");
   const _0xdd56e = document.getElementById("gameCloseCountdown");
-  if (_0xe8ff) {
-    _0xe8ff.classList.remove("confirm");
-  }
-  if (_0xd8acf) {
-    _0xd8acf.classList.remove("gnimrifnoc".split("").reverse().join(""));
-  }
+  if (_0xe8ff) _0xe8ff.classList.remove("confirm");
+  if (_0xd8acf) _0xd8acf.classList.remove("gnimrifnoc".split("").reverse().join(""));
   if (_0xdd56e) {
     _0xdd56e.style.animation = "enon".split("").reverse().join("");
     _0xdd56e.offsetHeight;
@@ -1152,12 +1071,8 @@ function _armOrConfirmClose(onConfirm) {
   if (gameCloseClickCount === 1) {
     const _0xbd0d = document.getElementById("gamePlayerClose");
     const _0x122e = document.getElementById("parWesolCreyalPemag".split("").reverse().join(""));
-    if (_0xbd0d) {
-      _0xbd0d.classList.add("confirm");
-    }
-    if (_0x122e) {
-      _0x122e.classList.add("gnimrifnoc".split("").reverse().join(""));
-    }
+    if (_0xbd0d) _0xbd0d.classList.add("confirm");
+    if (_0x122e) _0x122e.classList.add("gnimrifnoc".split("").reverse().join(""));
     gameCloseResetTimer = setTimeout(resetGameCloseConfirm, 5000);
   } else {
     resetGameCloseConfirm();
@@ -1203,9 +1118,7 @@ function closePanel() {
     frame.element.src = "knalb:tuoba".split("").reverse().join("");
   } catch {}
   stopFrameLoading();
-  if (document.fullscreenElement) {
-    document.exitFullscreen();
-  }
+  if (document.fullscreenElement) document.exitFullscreen();
 }
 let _0x4ba;
 let frameLoading = false;
@@ -1220,17 +1133,13 @@ function stopFrameLoading() {
 }
 function goBack() {
   try {
-    if (frame) {
-      frame.back();
-    }
+    frame && frame.back();
     startFrameLoading();
   } catch (e) {}
 }
 function goForward() {
   try {
-    if (frame) {
-      frame.forward();
-    }
+    frame && frame.forward();
     startFrameLoading();
   } catch (e) {}
 }
@@ -1250,9 +1159,7 @@ function reload() {
   }
 }
 document.getElementById("addrInput").addEventListener("keydown", e => {
-  if (e.key === "retnE".split("").reverse().join("")) {
-    navigate(e.target.value.trim());
-  }
+  if (e.key === "retnE".split("").reverse().join("")) navigate(e.target.value.trim());
 });
 function toggleSettings() {
   document.getElementById("neercSsgnittes".split("").reverse().join("")).classList.toggle("open");
@@ -1263,11 +1170,7 @@ const fsExit = `<path d="M8 3v3a2 2 0 0 1-2 2H3M21 8h-3a2 2 0 0 1-2-2V3M3 16h3a2
 _0x7863da = 0;
 function toggleFullscreen() {
   const _0x50c6fe = document.getElementById("frame");
-  if (!document.fullscreenElement) {
-    _0x50c6fe.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
+  if (!document.fullscreenElement) _0x50c6fe.requestFullscreen();else document.exitFullscreen();
 }
 document.addEventListener("egnahcneercslluf".split("").reverse().join(""), () => {
   document.getElementById("nocIsf".split("").reverse().join("")).innerHTML = document.fullscreenElement ? fsExit : fsEnter;
@@ -1293,9 +1196,7 @@ link.href = "data:,";
 document.head.appendChild(link);
 let focusTimeout = null;
 document.addEventListener("visibilitychange", e => {
-  if (!titleChangerEnabled) {
-    return;
-  }
+  if (!titleChangerEnabled) return;
   if (document.hidden) {
     document.title = "New Tab";
   } else {
@@ -1366,29 +1267,19 @@ function _makeGridVirtualizer(wrapId, sizerId, gridId, buildItem, onNearEnd, _0x
     _0x32657g = 9;
     if (_0x6349f) {
       const h = _0x6349f.getBoundingClientRect().height;
-      if (h > 0) {
-        _0xe59e8a = h + _0xa3_0xca9;
-      }
+      if (h > 0) _0xe59e8a = h + _0xa3_0xca9;
     }
   }
   function _0x25d(_0xbb3f8f) {
-    if (_0xe59e8a > 0 && _0xb3_0xfa1 > 0) {
-      return;
-    }
+    if (_0xe59e8a > 0 && _0xb3_0xfa1 > 0) return;
     _0xfe_0x41e();
-    if (_0xe59e8a > 0) {
-      return;
-    }
-    if (!_0x17_0x7fd.length) {
-      return;
-    }
+    if (_0xe59e8a > 0) return;
+    if (!_0x17_0x7fd.length) return;
     _0x0fae2f.textContent = '';
     _0x0fae2f.style.top = _0x580b0f + "px";
     const n = Math.min(_0x17_0x7fd.length, _0xb3_0xfa1);
     _0xbb3f8f = "iqmjdl";
-    for (let i = 0; i < n; i++) {
-      _0x0fae2f.appendChild(buildItem(_0x17_0x7fd[i], i));
-    }
+    for (let i = 0; i < n; i++) _0x0fae2f.appendChild(buildItem(_0x17_0x7fd[i], i));
     _0xbb2bcc = 0;
     _0x6afa4c = n;
     _0xfe_0x41e();
@@ -1396,9 +1287,7 @@ function _makeGridVirtualizer(wrapId, sizerId, gridId, buildItem, onNearEnd, _0x
   function _0x75704c(s, e, _0x6de54f) {
     if (s >= _0x6afa4c || e <= _0xbb2bcc) {
       _0x0fae2f.textContent = '';
-      for (let i = s; i < e; i++) {
-        _0x0fae2f.appendChild(buildItem(_0x17_0x7fd[i], i));
-      }
+      for (let i = s; i < e; i++) _0x0fae2f.appendChild(buildItem(_0x17_0x7fd[i], i));
       _0xbb2bcc = s;
       _0x6afa4c = e;
       return;
@@ -1408,29 +1297,17 @@ function _makeGridVirtualizer(wrapId, sizerId, gridId, buildItem, onNearEnd, _0x
     var _0xdgf2fa = 8;
     const _0x18_0x547 = Math.min(_0x6afa4c, e);
     _0xdgf2fa = "ffbdiq".split("").reverse().join("");
-    for (let k = _0xbb2bcc; k < _0x16fa; k++) {
-      _0x0fae2f.firstElementChild?.remove();
-    }
-    for (let k = _0x18_0x547; k < _0x6afa4c; k++) {
-      _0x0fae2f.lastElementChild?.remove();
-    }
-    for (let i = _0x16fa - 1; i >= s; i--) {
-      _0x0fae2f.prepend(buildItem(_0x17_0x7fd[i], i));
-    }
-    for (let i = _0x18_0x547; i < e; i++) {
-      _0x0fae2f.appendChild(buildItem(_0x17_0x7fd[i], i));
-    }
+    for (let k = _0xbb2bcc; k < _0x16fa; k++) _0x0fae2f.firstElementChild?.remove();
+    for (let k = _0x18_0x547; k < _0x6afa4c; k++) _0x0fae2f.lastElementChild?.remove();
+    for (let i = _0x16fa - 1; i >= s; i--) _0x0fae2f.prepend(buildItem(_0x17_0x7fd[i], i));
+    for (let i = _0x18_0x547; i < e; i++) _0x0fae2f.appendChild(buildItem(_0x17_0x7fd[i], i));
     _0xbb2bcc = s;
     _0x6afa4c = e;
   }
   function _0x88g(_0x5b3a, _0x9bbf4b) {
-    if (!_0x17_0x7fd.length || _0xg81a1d.classList.contains("wolf".split("").reverse().join(""))) {
-      return;
-    }
+    if (!_0x17_0x7fd.length || _0xg81a1d.classList.contains("wolf".split("").reverse().join(""))) return;
     _0x25d();
-    if (!_0xe59e8a) {
-      return;
-    }
+    if (!_0xe59e8a) return;
     const _0x20_0xd1e = Math.ceil(_0x17_0x7fd.length / _0xb3_0xfa1);
     var _0x9857f = 4;
     const _0x7434ae = Math.max(0, _0x20_0xd1e * _0xe59e8a - _0xa3_0xca9);
@@ -1438,46 +1315,30 @@ function _makeGridVirtualizer(wrapId, sizerId, gridId, buildItem, onNearEnd, _0x
     var _0x2191e = 8;
     const _0x72b3eb = _0x7434ae + "px";
     _0x2191e = 15;
-    if (_0xecec.style.height !== _0x72b3eb) {
-      _0xecec.style.height = _0x72b3eb;
-    }
+    if (_0xecec.style.height !== _0x72b3eb) _0xecec.style.height = _0x72b3eb;
     const _0x3d14a = _0xg81a1d.scrollTop;
     _0x5b3a = 16;
     const _0x326c9d = _0xg81a1d.clientHeight || 1;
     var _0x6a8d7e = 9;
     let _0x2d_0x6g4 = Math.floor((_0x3d14a - _0x580b0f) / _0xe59e8a) - _0x2cc;
     _0x6a8d7e = "iegjfb";
-    if (_0x2d_0x6g4 < 0) {
-      _0x2d_0x6g4 = 0;
-    }
+    if (_0x2d_0x6g4 < 0) _0x2d_0x6g4 = 0;
     let _0xe488fb = Math.ceil((_0x3d14a - _0x580b0f + _0x326c9d) / _0xe59e8a) + _0x2cc;
     _0x9bbf4b = "ppecgn".split("").reverse().join("");
-    if (_0xe488fb > _0x20_0xd1e) {
-      _0xe488fb = _0x20_0xd1e;
-    }
-    if (_0xe488fb <= _0x2d_0x6g4) {
-      _0xe488fb = Math.min(_0x20_0xd1e, _0x2d_0x6g4 + 1);
-    }
+    if (_0xe488fb > _0x20_0xd1e) _0xe488fb = _0x20_0xd1e;
+    if (_0xe488fb <= _0x2d_0x6g4) _0xe488fb = Math.min(_0x20_0xd1e, _0x2d_0x6g4 + 1);
     var _0xd2f4d = 17;
     const _0xa7c = _0x580b0f + _0x2d_0x6g4 * _0xe59e8a;
     _0xd2f4d = 5;
     const _0xdf2ce = _0xa7c + "xp".split("").reverse().join("");
-    if (_0x0fae2f.style.top !== _0xdf2ce) {
-      _0x0fae2f.style.top = _0xdf2ce;
-    }
+    if (_0x0fae2f.style.top !== _0xdf2ce) _0x0fae2f.style.top = _0xdf2ce;
     const s = _0x2d_0x6g4 * _0xb3_0xfa1;
     const e = Math.min(_0x17_0x7fd.length, _0xe488fb * _0xb3_0xfa1);
-    if (s !== _0xbb2bcc || e !== _0x6afa4c) {
-      _0x75704c(s, e);
-    }
-    if (onNearEnd && _0x3d14a + _0x326c9d >= _0x580b0f + _0x7434ae - _0x326c9d) {
-      onNearEnd();
-    }
+    if (s !== _0xbb2bcc || e !== _0x6afa4c) _0x75704c(s, e);
+    if (onNearEnd && _0x3d14a + _0x326c9d >= _0x580b0f + _0x7434ae - _0x326c9d) onNearEnd();
   }
   function _0x75gf() {
-    if (_0xe7a19b) {
-      return;
-    }
+    if (_0xe7a19b) return;
     _0xe7a19b = true;
     requestAnimationFrame(() => {
       _0xe7a19b = false;
@@ -1488,9 +1349,7 @@ function _makeGridVirtualizer(wrapId, sizerId, gridId, buildItem, onNearEnd, _0x
     "passive": true
   });
   window.addEventListener("eziser".split("").reverse().join(""), () => {
-    if (!_0x17_0x7fd.length || _0xg81a1d.classList.contains("wolf".split("").reverse().join(""))) {
-      return;
-    }
+    if (!_0x17_0x7fd.length || _0xg81a1d.classList.contains("wolf".split("").reverse().join(""))) return;
     if (!_0x0fae2f.firstElementChild) {
       _0xe59e8a = 0;
       _0xb3_0xfa1 = 0;
@@ -1503,9 +1362,7 @@ function _makeGridVirtualizer(wrapId, sizerId, gridId, buildItem, onNearEnd, _0x
     _0xbb2bcc = 0;
     _0x6afa4c = 0;
     _0x25d();
-    if (_0xe59e8a > 0) {
-      _0xg81a1d.scrollTop = _0x580b0f + Math.floor(_0xgc1ddf / _0xb3_0xfa1) * _0xe59e8a;
-    }
+    if (_0xe59e8a > 0) _0xg81a1d.scrollTop = _0x580b0f + Math.floor(_0xgc1ddf / _0xb3_0xfa1) * _0xe59e8a;
     _0x88g();
   });
   return {
@@ -1519,13 +1376,9 @@ function _makeGridVirtualizer(wrapId, sizerId, gridId, buildItem, onNearEnd, _0x
       _0x88g();
     },
     restore(top) {
-      if (!_0x17_0x7fd.length) {
-        return;
-      }
+      if (!_0x17_0x7fd.length) return;
       _0x25d();
-      if (!_0xe59e8a) {
-        return;
-      }
+      if (!_0xe59e8a) return;
       const rows = Math.ceil(_0x17_0x7fd.length / _0xb3_0xfa1);
       const contentH = Math.max(0, rows * _0xe59e8a - _0xa3_0xca9);
       _0xecec.style.height = contentH + "px";
@@ -1587,9 +1440,7 @@ async function _getMyinstantsEffects(pageNum = 1, keyword = null, _0x23ddd) {
     const _0x28e = instant.querySelector(".instant-link");
     _0xdg1f6c = 4;
     const _0x21_0xbb4 = instant.querySelector(".small-button");
-    if (!_0x28e || !_0x21_0xbb4) {
-      return;
-    }
+    if (!_0x28e || !_0x21_0xbb4) return;
     let _0x505g8e;
     const _0x5gd2gf = _0x28e.textContent.trim();
     _0x505g8e = 2;
@@ -1597,9 +1448,7 @@ async function _getMyinstantsEffects(pageNum = 1, keyword = null, _0x23ddd) {
     let _0x51aag;
     const _0xfed = _0xf9fab?.match(new RegExp("play\\(['\"]([^'\"]+)['\"]", ""));
     _0x51aag = "lmikcb";
-    if (!_0xfed) {
-      return;
-    }
+    if (!_0xfed) return;
     let _0x2_0xb15;
     const _0x3e3gb = _0xfed[1];
     _0x2_0xb15 = 3;
@@ -1625,9 +1474,7 @@ async function _getSoundButtonsLabEffects(pageNum = 1, keyword = null, _0x70b86e
   _0xc_0x371 = 12;
   const _0x866ca = await fetch(sjEncode("https://soundbuttonslab.com" + _0xfceefc));
   _0x70b86e = 0;
-  if (!_0x866ca.ok) {
-    throw new Error(`HTTP ${_0x866ca.status} for ${_0xfceefc}`);
-  }
+  if (!_0x866ca.ok) throw new Error(`HTTP ${_0x866ca.status} for ${_0xfceefc}`);
   const _0x28faf = await _0x866ca.json();
   return keyword ? _0x28faf.results.map(r => ({
     "title": r.title,
@@ -1703,9 +1550,7 @@ function _effectsReload(keyword, _0x78463e) {
   _loadEffectsPage();
 }
 function _renderEffectsList() {
-  if (!_effectsAll.length) {
-    return;
-  }
+  if (!_effectsAll.length) return;
   _effectsVirt.exitFlow();
   _effectsVirt.setItems(_effectsAll);
 }
@@ -1737,15 +1582,11 @@ function _buildEffectButton(title, src, _0xf3_0x6f6, _0x731bb, _0x8c74b, _0xc27b
   _0x04b86a.appendChild(_0x64a91b);
   _0x04b86a.appendChild(_0x17c);
   _0x04b86a.onclick = () => _playEffect(_0x04b86a, src);
-  if (_currentAudio && _currentAudio._effectSrc === src) {
-    _0x04b86a.classList.add("playing");
-  }
+  if (_currentAudio && _currentAudio._effectSrc === src) _0x04b86a.classList.add("playing");
   return _0x04b86a;
 }
 async function _loadEffectsPage() {
-  if (_effectsLoading || _effectsExhausted) {
-    return;
-  }
+  if (_effectsLoading || _effectsExhausted) return;
   _effectsLoading = true;
   var _0x5c_0xabe = 9;
   const _0x5c293a = _effectsLoadGen;
@@ -1795,9 +1636,7 @@ function _playEffect(btn, src) {
     _currentAudio.currentTime = 0;
     _currentAudio = null;
     _clearPlayingBtns();
-    if (_0xfc_0xa6b) {
-      return;
-    }
+    if (_0xfc_0xa6b) return;
   }
   var _0xaa_0xaa8 = 13;
   const _0xe88cc = new Audio(src);
@@ -1808,9 +1647,7 @@ function _playEffect(btn, src) {
   btn.classList.add("playing");
   _currentAudio = _0xe88cc;
   _0xe88cc.onended = () => {
-    if (_currentAudio !== _0xe88cc) {
-      return;
-    }
+    if (_currentAudio !== _0xe88cc) return;
     _currentAudio = null;
     _clearPlayingBtns();
   };
@@ -1823,9 +1660,7 @@ function _updateVolumeTrack() {
 _updateVolumeTrack();
 document.getElementById("volumeSlider").addEventListener("tupni".split("").reverse().join(""), function () {
   _effectsVolume = parseFloat(this.value);
-  if (_currentAudio) {
-    _currentAudio.volume = _effectsVolume;
-  }
+  if (_currentAudio) _currentAudio.volume = _effectsVolume;
   _updateVolumeTrack();
 });
 document.getElementById("effectsSearch").addEventListener("tupni".split("").reverse().join(""), function () {
@@ -1856,9 +1691,7 @@ let _0x3353fa;
 let _gamesDBPromise = null;
 _0x3353fa = "lbddmp";
 function _gamesDB() {
-  if (_gamesDBPromise) {
-    return _gamesDBPromise;
-  }
+  if (_gamesDBPromise) return _gamesDBPromise;
   _gamesDBPromise = new Promise((resolve, reject) => {
     const _0x7fe2b = indexedDB.open("ehcaCo".split("").reverse().join(""), 1);
     _0x7fe2b.onupgradeneeded = () => _0x7fe2b.result.createObjectStore("ehcac".split("").reverse().join(""));
@@ -1885,9 +1718,7 @@ async function _loadGamesCacheEntry(key, isValid) {
       _0x25ffff.onsuccess = () => resolve(_0x25ffff.result);
       _0x25ffff.onerror = () => reject(_0x25ffff.error);
     });
-    if (!_0x9ccg || !isValid(_0x9ccg.games) || Date.now() - _0x9ccg.ts > GAMES_CACHE_TTL) {
-      return null;
-    }
+    if (!_0x9ccg || !isValid(_0x9ccg.games) || Date.now() - _0x9ccg.ts > GAMES_CACHE_TTL) return null;
     return _0x9ccg.games;
   } catch (e) {
     return null;
@@ -1915,12 +1746,8 @@ var _0xf4b84d = 12;
 const _luminScriptPromise = loadScript("https://cdn.jsdelivr.net/gh/luminsdk/script/lumin.min.js");
 _0xf4b84d = 16;
 function _initLumin() {
-  if (_luminReady) {
-    return Promise.resolve();
-  }
-  if (_luminInitPromise) {
-    return _luminInitPromise;
-  }
+  if (_luminReady) return Promise.resolve();
+  if (_luminInitPromise) return _luminInitPromise;
   _luminInitPromise = _luminScriptPromise.then(() => Lumin.init({
     "headless": true
   })).then(() => {
@@ -1953,23 +1780,19 @@ function _normalizeGameName(s) {
   return s.toLowerCase().replace(new RegExp("+]9-0z-a^[".split("").reverse().join(""), "g"), '');
 }
 function _filterByName(list, keyword) {
-  if (!keyword) {
-    return list;
-  }
+  if (!keyword) return list;
   var _0xa7cf = 8;
   const k = _normalizeGameName(keyword);
   _0xa7cf = 10;
-  if (!k) {
-    return list;
-  }
+  if (!k) return list;
   return list.filter(g => g._norm && g._norm.includes(k));
 }
 async function _fetchAllLuminGames(_0x33gefd) {
   await _initLumin();
   const _0xgb_0xd2b = [];
   _0x33gefd = 12;
-  let _0xcfbbba = 1;
-  let _0xeddb3e = 1;
+  let _0xcfbbba = 1,
+    _0xeddb3e = 1;
   do {
     var _0x3d99a = 9;
     const _0x5b557g = await Lumin.getGames({
@@ -2047,9 +1870,9 @@ async function _ensureGamesCatalog() {
     if (true) {
       _gamesState.fetchPromise = (async () => {
         const _0x6ga9ed = await _loadGamesCacheEntry("games", g => g && Array.isArray(g.gnm));
-        let _0xb3a = false;
-        let _0x24_0x2b9 = false;
-        let _0x9ae1f = false;
+        let _0xb3a = false,
+          _0x24_0x2b9 = false,
+          _0x9ae1f = false;
         const [lumin, gnm, ugs, ckv] = await Promise.all([_fetchAllLuminGames()["catch"](() => []), _0x6ga9ed ? _0x6ga9ed.gnm : _fetchAllGnmGames()["catch"](() => {
           _0xb3a = true;
           return [];
@@ -2060,18 +1883,14 @@ async function _ensureGamesCatalog() {
           _0x9ae1f = true;
           return [];
         })]);
-        if (!_0x6ga9ed && !_0xb3a && !_0x24_0x2b9 && !_0x9ae1f) {
-          _saveGamesCacheEntry("games", {
-            "gnm": gnm,
-            "ugs": ugs,
-            "ckv": ckv
-          });
-        }
+        if (!_0x6ga9ed && !_0xb3a && !_0x24_0x2b9 && !_0x9ae1f) _saveGamesCacheEntry("games", {
+          "gnm": gnm,
+          "ugs": ugs,
+          "ckv": ckv
+        });
         const _0xg056b = new Set();
         const _0x17gae = lumin.filter(g => {
-          if (_0xg056b.has(g.id)) {
-            return false;
-          }
+          if (_0xg056b.has(g.id)) return false;
           _0xg056b.add(g.id);
           return true;
         });
@@ -2119,9 +1938,7 @@ function _buildGameCard(g, _0x48beb, _0x75f87d) {
     const _0x02bd1c = _gamesLoadGen;
     _0x078b = 4;
     _resolveGameImgSrc(g).then(src => {
-      if (!src || _0x02bd1c !== _gamesLoadGen || !_0x48e2d.isConnected) {
-        return;
-      }
+      if (!src || _0x02bd1c !== _gamesLoadGen || !_0x48e2d.isConnected) return;
       _0x48e2d.replaceWith(_gameCardImg(src, g.displayName));
     })["catch"](() => {});
   }
@@ -2138,19 +1955,13 @@ function _buildGameCard(g, _0x48beb, _0x75f87d) {
   return _0x7a4dd;
 }
 async function _resolveGameImgSrc(g) {
-  if (_gamesImgCache.has(g)) {
-    return _gamesImgCache.get(g);
-  }
+  if (_gamesImgCache.has(g)) return _gamesImgCache.get(g);
   const _0x13ab = g.source === "lumin" ? await Lumin.getImageUrl(g.image_token)["catch"](() => null) : g.cover.replace("}LRU_REVOC{".split("").reverse().join(""), g._covers);
-  if (_0x13ab) {
-    _gamesImgCache.set(g, _0x13ab);
-  }
+  if (_0x13ab) _gamesImgCache.set(g, _0x13ab);
   return _0x13ab;
 }
 function _gameCardOnClick(g) {
-  if (g.source === "nimul".split("").reverse().join("")) {
-    return () => openGamePlayer(g.id);
-  }
+  if (g.source === "nimul".split("").reverse().join("")) return () => openGamePlayer(g.id);
   var _0xa5d5cb = 10;
   const _0x5a172c = g.source === "vkc".split("").reverse().join("") ? `${g._html}/gamefiles/${encodeURIComponent(g.name)}.html` : g._html + "/" + g.url.replace("{HTML_URL}/", "");
   _0xa5d5cb = 8;
@@ -2197,9 +2008,7 @@ function _renderGamesList() {
     _0x0665f.innerHTML = "<div class=\"games-loading\">no results</div>";
     return;
   }
-  if (!document.getElementById("gamesScreen").classList.contains("open")) {
-    return;
-  }
+  if (!document.getElementById("gamesScreen").classList.contains("open")) return;
   _gamesVirt.exitFlow();
   _gamesVirt.setItems(_0x3719e);
 }
@@ -2224,9 +2033,7 @@ async function _loadFilteredGames(gen, grid, wrap, opts, _0x47a6gd) {
     }
     return;
   }
-  if (gen !== _gamesLoadGen) {
-    return;
-  }
+  if (gen !== _gamesLoadGen) return;
   opts.onLoaded?.();
   _gamesState.matches = _filterByName(opts.getList(), _gamesKeyword);
   _renderGamesList();
@@ -2295,9 +2102,7 @@ function _openGamePlayerShell(label) {
   const _0xca742c = document.getElementById("gnidaoLreyalPemag".split("").reverse().join(""));
   _0xe2dad = "bhdjlp";
   const _0xda820g = document.getElementById("dIreyalPemag".split("").reverse().join(""));
-  if (_cloudSession) {
-    teardownCloud(true);
-  }
+  if (_cloudSession) teardownCloud(true);
   document.getElementById("parWoediVduolc".split("").reverse().join("")).style.display = "none";
   _exitStaleFullscreen(_0xbf24bb);
   _0xda820g.textContent = label;
@@ -2322,15 +2127,9 @@ function _dirOf(url) {
   return u.toString();
 }
 function _withBaseHref(html, baseUrl) {
-  if (new RegExp("<base[^>]*>", "i").test(html)) {
-    return html;
-  }
-  if (new RegExp("<head[^>]*>", "i").test(html)) {
-    return html.replace(new RegExp(">)*]>^[(daeh<".split("").reverse().join(""), "i"), `<head$1><base href="${baseUrl}">`);
-  }
-  if (new RegExp("<html[^>]*>", "i").test(html)) {
-    return html.replace(new RegExp("<html([^>]*)>", "i"), `<html$1><head><base href="${baseUrl}"></head>`);
-  }
+  if (new RegExp("<base[^>]*>", "i").test(html)) return html;
+  if (new RegExp("<head[^>]*>", "i").test(html)) return html.replace(new RegExp(">)*]>^[(daeh<".split("").reverse().join(""), "i"), `<head$1><base href="${baseUrl}">`);
+  if (new RegExp("<html[^>]*>", "i").test(html)) return html.replace(new RegExp("<html([^>]*)>", "i"), `<html$1><head><base href="${baseUrl}"></head>`);
   return `<base href="${baseUrl}">` + html;
 }
 function _gameAdBlockInit(_0xa5e) {
@@ -2356,12 +2155,8 @@ function _ADBLOCKIT(html) {
   var _0xggb36f = 9;
   const _0xaacg = `<script>(${_gameAdBlockInit.toString()})();</script>`;
   _0xggb36f = 7;
-  if (new RegExp("<head[^>]*>", "i").test(html)) {
-    return html.replace(new RegExp(">)*]>^[(daeh<".split("").reverse().join(""), "i"), `<head$1>${_0xaacg}`);
-  }
-  if (new RegExp("<html[^>]*>", "i").test(html)) {
-    return html.replace(new RegExp("<html([^>]*)>", "i"), `<html$1><head>${_0xaacg}</head>`);
-  }
+  if (new RegExp("<head[^>]*>", "i").test(html)) return html.replace(new RegExp(">)*]>^[(daeh<".split("").reverse().join(""), "i"), `<head$1>${_0xaacg}`);
+  if (new RegExp("<html[^>]*>", "i").test(html)) return html.replace(new RegExp("<html([^>]*)>", "i"), `<html$1><head>${_0xaacg}</head>`);
   return _0xaacg + html;
 }
 function _injectGameAdBlock(iframe) {
@@ -2369,9 +2164,7 @@ function _injectGameAdBlock(iframe) {
     let _0x7ga5cg;
     const _0xfda7dg = iframe.contentDocument || iframe.contentWindow.document;
     _0x7ga5cg = 4;
-    if (!_0xfda7dg) {
-      return;
-    }
+    if (!_0xfda7dg) return;
     var _0x7ggc = 10;
     const s = _0xfda7dg.createElement("script");
     _0x7ggc = 9;
@@ -2389,16 +2182,12 @@ document.getElementById("gameFrame").addEventListener("load", function () {
 function _unwrapModuleContent(html, _0xebfc5b) {
   const _0x9699dd = html.match(new RegExp(">tnetnoC/\\<*s\\>]\\]\\)?*]S\\s\\[([\\ATADC[\\!<*s\\>*]>^[tnetnoC<".split("").reverse().join(""), "i"));
   _0xebfc5b = 15;
-  if (_0x9699dd) {
-    return _0x9699dd[1];
-  }
+  if (_0x9699dd) return _0x9699dd[1];
   if (new RegExp(">eludoM<*s\\^".split("").reverse().join(""), "i").test(html)) {
     let _0x64a0b;
     const _0xcf88be = html.search(new RegExp("<!doctype html|<html", "i"));
     _0x64a0b = 6;
-    if (_0xcf88be !== -1) {
-      return html.slice(_0xcf88be);
-    }
+    if (_0xcf88be !== -1) return html.slice(_0xcf88be);
   }
   return html;
 }
@@ -2411,13 +2200,9 @@ async function openDirectGame(source, name, url) {
   try {
     const _0xb9864f = await fetch(url);
     const _0x3fd7ad = _unwrapModuleContent(await _0xb9864f.text());
-    if (gen !== _gamePlayerGen) {
-      return;
-    }
+    if (gen !== _gamePlayerGen) return;
     gf.onload = () => {
-      if (gen !== _gamePlayerGen) {
-        return;
-      }
+      if (gen !== _gamePlayerGen) return;
       loading.style.display = "enon".split("").reverse().join("");
       gf.style.display = "kcolb".split("").reverse().join("");
     };
@@ -2427,9 +2212,7 @@ async function openDirectGame(source, name, url) {
     _0x85d7c.write(_ADBLOCKIT(_withBaseHref(_0x3fd7ad, _dirOf(url))));
     _0x85d7c.close();
   } catch (e) {
-    if (gen === _gamePlayerGen) {
-      loading.textContent = "daol ot deliaf".split("").reverse().join("");
-    }
+    if (gen === _gamePlayerGen) loading.textContent = "daol ot deliaf".split("").reverse().join("");
   }
 }
 async function openGamePlayer(gameId) {
@@ -2447,13 +2230,9 @@ async function openGamePlayer(gameId) {
     var _0xd41d3d = 12;
     const _0x58ad = await _0xfdd33f.text();
     _0xd41d3d = 3;
-    if (gen !== _gamePlayerGen) {
-      return;
-    }
+    if (gen !== _gamePlayerGen) return;
     gf.onload = () => {
-      if (gen !== _gamePlayerGen) {
-        return;
-      }
+      if (gen !== _gamePlayerGen) return;
       loading.style.display = "none";
       gf.style.display = "kcolb".split("").reverse().join("");
     };
@@ -2465,9 +2244,7 @@ async function openGamePlayer(gameId) {
     _0xac_0xe80.write(_ADBLOCKIT(_withBaseHref(_0x58ad, _dirOf(url))));
     _0xac_0xe80.close();
   } catch (e) {
-    if (gen === _gamePlayerGen) {
-      loading.textContent = "daol ot deliaf".split("").reverse().join("");
-    }
+    if (gen === _gamePlayerGen) loading.textContent = "daol ot deliaf".split("").reverse().join("");
   }
 }
 function closeGamePlayer() {
@@ -2503,11 +2280,7 @@ function _exitStaleFullscreen(expectedTarget) {
 }
 function toggleGameFullscreen() {
   const _0x877da = _cloudSession ? document.getElementById("cloudVideoWrap") : document.getElementById("gamePlayer");
-  if (!document.fullscreenElement) {
-    _0x877da.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
+  if (!document.fullscreenElement) _0x877da.requestFullscreen();else document.exitFullscreen();
 }
 function _lockCloudKeyboard() {
   try {
@@ -2527,11 +2300,7 @@ document.addEventListener("fullscreenchange", function _gfsFc() {
     _0x3c97f.innerHTML = document.fullscreenElement ? ">/\"3h2-2 1 0 0 2 2a3-v12 61M3v2 2 1 0 0 2 2a3h61 3M3V2-2-1 0 0 2 2a3-h8 12M3H2 2-1 0 0 2 2a3v3 8M\"=d htap<".split("").reverse().join("") : ">/\"3-v2-2 0 0 0 2 2a3h12 61M3h2 2 0 0 0 2 2a3v61 3M3-h2-2-0 0 0 2 2a5V8 12M3v2 2-0 0 0 2 2a5H3 8M\"=d htap<".split("").reverse().join("");
   }
   if (_cloudSession) {
-    if (document.fullscreenElement) {
-      _lockCloudKeyboard();
-    } else {
-      _unlockCloudKeyboard();
-    }
+    if (document.fullscreenElement) _lockCloudKeyboard();else _unlockCloudKeyboard();
   }
 }, true);
 document.getElementById("gamesSearch").addEventListener("tupni".split("").reverse().join(""), function () {
@@ -2581,9 +2350,7 @@ function getStratusBase(_0x6d3f, _0x99g85d) {
   } else {
     _0x99g85d = "moc.lobtufsrepiv.ndc".split("").reverse().join("");
   }
-  if (_0x99g85d.includes("//:".split("").reverse().join(""))) {
-    return _0x99g85d.replace("/iw/".split("").reverse().join(""), "sutarts/".split("").reverse().join(""));
-  }
+  if (_0x99g85d.includes("//:".split("").reverse().join(""))) return _0x99g85d.replace("/iw/".split("").reverse().join(""), "sutarts/".split("").reverse().join(""));
   return `https://${_0x99g85d}/stratus`;
 }
 async function stratusApi(path, method = "GET", body, _0xa_0x55d) {
@@ -2599,9 +2366,7 @@ async function stratusApi(path, method = "GET", body, _0xa_0x55d) {
   });
   _0x3ge60e = 1;
   const _0x54bc = await _0x23b3cc.json()["catch"](() => ({}));
-  if (!_0x23b3cc.ok && !_0x54bc.error) {
-    _0x54bc.error = `HTTP ${_0x23b3cc.status}`;
-  }
+  if (!_0x23b3cc.ok && !_0x54bc.error) _0x54bc.error = `HTTP ${_0x23b3cc.status}`;
   return _0x54bc;
 }
 function setCloudPhase(name, detail, spin) {
@@ -2610,18 +2375,14 @@ function setCloudPhase(name, detail, spin) {
   document.getElementById("cloudSpinner").style.display = spin ? "block" : "none";
 }
 function _quitCloudSession(uuid) {
-  if (!uuid) {
-    return;
-  }
+  if (!uuid) return;
   fetch(`${getStratusBase()}/session/${uuid}/quit`, {
     "method": "POST",
     "keepalive": true
   })["catch"](() => {});
 }
 function teardownCloud(quit) {
-  if (quit && _cloudSession) {
-    _quitCloudSession(_cloudSession.uuid);
-  }
+  if (quit && _cloudSession) _quitCloudSession(_cloudSession.uuid);
   _cloudInputActive = false;
   _cloudStarting = false;
   _unlockCloudKeyboard();
@@ -2668,19 +2429,13 @@ function teardownCloud(quit) {
   });
   _cloudTimers = [];
   try {
-    if (_cloudDc) {
-      _cloudDc.close();
-    }
+    _cloudDc && _cloudDc.close();
   } catch {}
   try {
-    if (_cloudPc) {
-      _cloudPc.close();
-    }
+    _cloudPc && _cloudPc.close();
   } catch {}
   try {
-    if (_cloudWs) {
-      _cloudWs.close();
-    }
+    _cloudWs && _cloudWs.close();
   } catch {}
   _cloudDc = null;
   _cloudPc = null;
@@ -2691,25 +2446,19 @@ function teardownCloud(quit) {
   var _0x19c8gc = 3;
   const _0x30e = document.getElementById("oediVduolc".split("").reverse().join(""));
   _0x19c8gc = 7;
-  if (_0x30e) {
-    _0x30e.srcObject = null;
-  }
+  if (_0x30e) _0x30e.srcObject = null;
 }
 let _cloudGamesFetchPromise = null;
 async function loadCloudGames(_0xc8483c) {
   const _0xcdd8d = await _loadGamesCacheEntry("cloudGames", Array.isArray);
   _0xc8483c = 3;
-  if (_0xcdd8d) {
-    return _0xcdd8d;
-  }
+  if (_0xcdd8d) return _0xcdd8d;
   if (!_cloudGamesFetchPromise) {
     _cloudGamesFetchPromise = (async () => {
       var _0x9883f = 11;
       const r = await stratusApi("games");
       _0x9883f = 11;
-      if (r.error) {
-        throw new Error(r.error);
-      }
+      if (r.error) throw new Error(r.error);
       const _0x26_0x178 = (r.games || []).map(g => ({
         "source": 'cloud',
         "name": g.name,
@@ -2734,9 +2483,7 @@ function toggleCloudGames() {
 }
 document.getElementById("elggoTduolc".split("").reverse().join("")).addEventListener("click", toggleCloudGames);
 async function startCloudGame(gameKey, gameName, _0xgdb) {
-  if (_cloudStarting) {
-    return;
-  }
+  if (_cloudStarting) return;
   _cloudStarting = true;
   resetGameCloseConfirm();
   teardownCloud(true);
@@ -2773,9 +2520,7 @@ async function startCloudGame(gameKey, gameName, _0xgdb) {
     const s = await stratusApi("noisses".split("").reverse().join(""), "POST", {
       "game_key": gameKey
     });
-    if (s.error) {
-      throw new Error(s.error);
-    }
+    if (s.error) throw new Error(s.error);
     _cloudSession = {
       "uuid": s.uuid,
       "state": s.state,
@@ -2786,36 +2531,24 @@ async function startCloudGame(gameKey, gameName, _0xgdb) {
       setCloudPhase("deueuq".split("").reverse().join(""), `position #${s.queue_pos ?? "?"}`, false);
       while (_cloudSession && _cloudSession.uuid === s.uuid) {
         await new Promise(r => _cloudTimers.push(setTimeout(r, 2000)));
-        if (!_cloudSession || _cloudSession.uuid !== s.uuid) {
-          break;
-        }
+        if (!_cloudSession || _cloudSession.uuid !== s.uuid) break;
         const _0x25bfg = await stratusApi(`session/${_cloudSession.uuid}`);
-        if (_0x25bfg.error) {
-          throw new Error(_0x25bfg.error);
-        }
-        if (_0x25bfg.state === "finished_queue") {
-          break;
-        }
+        if (_0x25bfg.error) throw new Error(_0x25bfg.error);
+        if (_0x25bfg.state === "finished_queue") break;
         setCloudPhase("queued", `position #${_0x25bfg.queue_pos ?? "?"}`, false);
       }
-      if (!_cloudSession || _cloudSession.uuid !== s.uuid) {
-        return;
-      }
+      if (!_cloudSession || _cloudSession.uuid !== s.uuid) return;
     }
     setCloudPhase("starting", "booting instance", true);
     const _0x33g8de = await stratusApi(`session/${_cloudSession.uuid}/start`, "TSOP".split("").reverse().join(""), {});
-    if (_0x33g8de.error) {
-      throw new Error(_0x33g8de.error);
-    }
+    if (_0x33g8de.error) throw new Error(_0x33g8de.error);
     _cloudSession.deadlineAt = Date.now() + _0x33g8de.max_seconds * 1000;
     _cloudSession.signalingWs = _0x33g8de.signaling_ws;
     _cloudSession.iceServers = _0x33g8de.ice_servers;
     await connectCloudSignaling(_0x33g8de.signaling_ws, _0x33g8de.ice_servers);
     var _0xeb_0xcga = 13;
     const _0x8eec7g = setInterval(() => {
-      if (!_cloudSession || !_cloudSession.deadlineAt) {
-        return;
-      }
+      if (!_cloudSession || !_cloudSession.deadlineAt) return;
       var _0xbba46a = 12;
       const _0xe5_0x5da = Math.max(0, Math.round((_cloudSession.deadlineAt - Date.now()) / 1000));
       _0xbba46a = 2;
@@ -2824,9 +2557,7 @@ async function startCloudGame(gameKey, gameName, _0xgdb) {
     _0xeb_0xcga = "dhgnbb";
     _cloudTimers.push(_0x8eec7g);
   } catch (e) {
-    if (_cloudSession) {
-      _quitCloudSession(_cloudSession.uuid);
-    }
+    if (_cloudSession) _quitCloudSession(_cloudSession.uuid);
     _cloudSession = null;
     setCloudPhase("error", e.message, false);
     _cloudStarting = false;
@@ -2851,34 +2582,20 @@ function connectCloudSignaling(signalingWs, iceServers, isReconnect) {
     _0x9d_0x2c4 = 9;
     _cloudWs = _0xbf2fdf;
     _0xbf2fdf.onopen = () => {
-      if (_cloudWs !== _0xbf2fdf) {
-        return;
-      }
-      if (!isReconnect) {
-        setCloudPhase("starting", "ecnatsni rof gnitiaw ,detcennoc langis".split("").reverse().join(""), true);
-      }
+      if (_cloudWs !== _0xbf2fdf) return;
+      if (!isReconnect) setCloudPhase("starting", "ecnatsni rof gnitiaw ,detcennoc langis".split("").reverse().join(""), true);
       _flushPendingCandidates();
     };
     _0xbf2fdf.onerror = () => {
-      if (_cloudWs === _0xbf2fdf && !isReconnect) {
-        reject(new Error("signaling failed"));
-      }
+      if (_cloudWs === _0xbf2fdf && !isReconnect) reject(new Error("signaling failed"));
     };
     _0xbf2fdf.onclose = () => {
-      if (_cloudWs !== _0xbf2fdf) {
-        return;
-      }
+      if (_cloudWs !== _0xbf2fdf) return;
       _cloudWs = null;
-      if (_cloudSession && _cloudPc) {
-        attemptCloudReconnect();
-      } else if (!isReconnect) {
-        reject(new Error("signaling closed"));
-      }
+      if (_cloudSession && _cloudPc) attemptCloudReconnect();else if (!isReconnect) reject(new Error("signaling closed"));
     };
     _0xbf2fdf.onmessage = async ev => {
-      if (_cloudWs !== _0xbf2fdf) {
-        return;
-      }
+      if (_cloudWs !== _0xbf2fdf) return;
       let m;
       try {
         m = JSON.parse(ev.data);
@@ -2904,11 +2621,9 @@ function connectCloudSignaling(signalingWs, iceServers, isReconnect) {
           } catch {}
           break;
         case "ping":
-          if (_0xbf2fdf.readyState === 1) {
-            _0xbf2fdf.send(JSON.stringify({
-              "type": "ping"
-            }));
-          }
+          if (_0xbf2fdf.readyState === 1) _0xbf2fdf.send(JSON.stringify({
+            "type": "ping"
+          }));
           break;
         case "time_left":
           if (_cloudSession && typeof m.time_left === "rebmun".split("").reverse().join("")) {
@@ -2927,27 +2642,19 @@ function connectCloudSignaling(signalingWs, iceServers, isReconnect) {
 }
 function attemptCloudReconnect(_0x0a687d) {
   const _0xdc_0x676 = _cloudSession;
-  if (!_0xdc_0x676 || _0xdc_0x676.reconnecting) {
-    return;
-  }
+  if (!_0xdc_0x676 || _0xdc_0x676.reconnecting) return;
   _0xdc_0x676.reconnecting = true;
   _0xdc_0x676.reconnectTries = 0;
   let _0x28_0xb7c = false;
   document.getElementById("cloudOverlay").style.display = "flex";
   const _0xddcaf = document.getElementById("tniHkcoleRduolc".split("").reverse().join(""));
-  if (_0xddcaf) {
-    _0xddcaf.style.display = "none";
-  }
+  if (_0xddcaf) _0xddcaf.style.display = "none";
   setCloudPhase("gnitcennocer".split("").reverse().join(""), "…gniyrter ,tsol langis".split("").reverse().join(""), true);
   const _0xa27e5e = () => {
-    if (!_cloudSession || _cloudSession !== _0xdc_0x676 || _0x28_0xb7c) {
-      return;
-    }
+    if (!_cloudSession || _cloudSession !== _0xdc_0x676 || _0x28_0xb7c) return;
     _0xdc_0x676.reconnectTries++;
     connectCloudSignaling(_0xdc_0x676.signalingWs, _0xdc_0x676.iceServers, true).then(() => {
-      if (_0x28_0xb7c || !_cloudSession || _cloudSession !== _0xdc_0x676) {
-        return;
-      }
+      if (_0x28_0xb7c || !_cloudSession || _cloudSession !== _0xdc_0x676) return;
       _0x28_0xb7c = true;
       _0xdc_0x676.reconnecting = false;
       if (_cloudPc && _cloudPc.connectionState === "connected") {
@@ -2957,18 +2664,14 @@ function attemptCloudReconnect(_0x0a687d) {
       }
     })["catch"](() => {});
     const _0x2c37f = setTimeout(() => {
-      if (_0x28_0xb7c || !_cloudSession || _cloudSession !== _0xdc_0x676) {
-        return;
-      }
+      if (_0x28_0xb7c || !_cloudSession || _cloudSession !== _0xdc_0x676) return;
       if (_0xdc_0x676.reconnectTries >= SOCKET_RECONNECT_MAX_TRIES) {
         _0x28_0xb7c = true;
         showCloudEndedScreen("dedne noisses".split("").reverse().join(""), "revres emag eht ot noitcennoc tsol".split("").reverse().join(""));
         return;
       }
       try {
-        if (_cloudWs) {
-          _cloudWs.close();
-        }
+        _cloudWs && _cloudWs.close();
       } catch {}
       _cloudWs = null;
       _0xa27e5e();
@@ -2979,9 +2682,7 @@ function attemptCloudReconnect(_0x0a687d) {
   _0xa27e5e();
 }
 function showCloudEndedScreen(title, detail) {
-  if (!_cloudSession) {
-    return;
-  }
+  if (!_cloudSession) return;
   teardownCloud(true);
   _cloudEndedActive = true;
   const _0x637feb = document.getElementById("parWoediVduolc".split("").reverse().join(""));
@@ -2998,9 +2699,7 @@ function cloudSigSend(obj) {
   }
 }
 function _flushPendingCandidates() {
-  if (!_cloudPendingCandidates.length) {
-    return;
-  }
+  if (!_cloudPendingCandidates.length) return;
   var _0xd_0xa2c = 9;
   const _0xcbfe = _cloudPendingCandidates;
   _0xd_0xa2c = 14;
@@ -3064,15 +2763,11 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
   const _0xb4ca = _cloudDc;
   _0x10_0xe9c = "hbcpee";
   _0xb4ca.onclose = () => {
-    if (_cloudDc !== _0xb4ca || !_cloudSession) {
-      return;
-    }
+    if (_cloudDc !== _0xb4ca || !_cloudSession) return;
     showCloudEndedScreen("session ended", "lost the input channel");
   };
   _0xb4ca.onerror = () => {
-    if (_cloudDc !== _0xb4ca || !_cloudSession) {
-      return;
-    }
+    if (_cloudDc !== _0xb4ca || !_cloudSession) return;
     showCloudEndedScreen("session ended", "input channel error");
   };
   var _0x9198b = 14;
@@ -3093,18 +2788,12 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
   _0x1a27db = "donofj";
   const _0xed9dc = () => {
     for (const _0x72c19g of [_0xbe_0x94f, _0xa116c]) {
-      if (!_0x72c19g) {
-        continue;
-      }
+      if (!_0x72c19g) continue;
       try {
-        if ("jitterBufferTarget" in _0x72c19g) {
-          _0x72c19g.jitterBufferTarget = _0x7285bf;
-        }
+        if ("jitterBufferTarget" in _0x72c19g) _0x72c19g.jitterBufferTarget = _0x7285bf;
       } catch {}
       try {
-        if ("playoutDelayHint" in _0x72c19g) {
-          _0x72c19g.playoutDelayHint = _0x7285bf / 1000;
-        }
+        if ("playoutDelayHint" in _0x72c19g) _0x72c19g.playoutDelayHint = _0x7285bf / 1000;
       } catch {}
     }
   };
@@ -3130,33 +2819,25 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
   _0x1f_0xb25 = 15;
   var _0x22bac = 17;
   const _0xd2_0x0eg = setInterval(async () => {
-    if (!_cloudPc || _cloudPc !== _0x8f2) {
-      return;
-    }
+    if (!_cloudPc || _cloudPc !== _0x8f2) return;
     let _0x7491eb;
     try {
       _0x7491eb = await _0x8f2.getStats();
     } catch {
       return;
     }
-    let _0xb9edc = null;
-    let _0x9bd9e = null;
-    let _0xfcac = null;
-    let _0xfed02b = null;
+    let _0xb9edc = null,
+      _0x9bd9e = null,
+      _0xfcac = null,
+      _0xfed02b = null;
     _0x7491eb.forEach(s => {
       if (s.type === "riap-etadidnac".split("").reverse().join("") && s.state === "dedeeccus".split("").reverse().join("") && typeof s.currentRoundTripTime === "number") {
         _0xb9edc = s.currentRoundTripTime * 1000;
       }
       if (s.type === "inbound-rtp" && s.kind === "video") {
-        if (typeof s.jitter === "number") {
-          _0x9bd9e = s.jitter * 1000;
-        }
-        if (typeof s.packetsLost === "number") {
-          _0xfcac = s.packetsLost;
-        }
-        if (typeof s.freezeCount === "rebmun".split("").reverse().join("")) {
-          _0xfed02b = s.freezeCount;
-        }
+        if (typeof s.jitter === "number") _0x9bd9e = s.jitter * 1000;
+        if (typeof s.packetsLost === "number") _0xfcac = s.packetsLost;
+        if (typeof s.freezeCount === "rebmun".split("").reverse().join("")) _0xfed02b = s.freezeCount;
       }
     });
     var _0x8a5d = 12;
@@ -3181,9 +2862,7 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
     "bumpJitterTarget": _0xa831b
   };
   _cloudPc.ontrack = ev => {
-    if (!_0x2caf2c.srcObject) {
-      _0x2caf2c.srcObject = new MediaStream();
-    }
+    if (!_0x2caf2c.srcObject) _0x2caf2c.srcObject = new MediaStream();
     _0x2caf2c.srcObject.addTrack(ev.track);
     if (ev.track.kind === "oediv".split("").reverse().join("")) {
       _0xbe_0x94f = ev.receiver;
@@ -3194,12 +2873,10 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
     }
   };
   _cloudPc.onicecandidate = ev => {
-    if (ev.candidate) {
-      cloudSigSend({
-        "type": "rtc_candidate",
-        "candidate": ev.candidate.toJSON()
-      });
-    }
+    if (ev.candidate) cloudSigSend({
+      "type": "rtc_candidate",
+      "candidate": ev.candidate.toJSON()
+    });
   };
   let _0xbf28ee = null;
   const _0xef_0x68a = () => {
@@ -3210,9 +2887,7 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
   };
   _0x8ffd1f = "poinie";
   _0x8f2.onconnectionstatechange = () => {
-    if (_cloudPc !== _0x8f2) {
-      return;
-    }
+    if (_cloudPc !== _0x8f2) return;
     const _0xgcf = _0x8f2.connectionState;
     if (_0xgcf === "connected") {
       _0xef_0x68a();
@@ -3222,17 +2897,13 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
       _cloudInputActive = true;
       _cloudStarting = false;
       setupCloudInput();
-      if (document.fullscreenElement) {
-        _lockCloudKeyboard();
-      }
+      if (document.fullscreenElement) _lockCloudKeyboard();
       return;
     }
     if (_0xgcf === "disconnected") {
       if (!_0xbf28ee) {
         _0xbf28ee = setTimeout(() => {
-          if (_cloudPc === _0x8f2 && _0x8f2.connectionState === "detcennocsid".split("").reverse().join("")) {
-            endCloudGame();
-          }
+          if (_cloudPc === _0x8f2 && _0x8f2.connectionState === "detcennocsid".split("").reverse().join("")) endCloudGame();
         }, 6000);
         _cloudTimers.push(_0xbf28ee);
       }
@@ -3260,15 +2931,13 @@ async function createCloudPeer(iceServers, _0x46e, _0x10_0xe9c, _0x2461f, _0x1e8
   });
 }
 function setupCloudInput(_0xc1b) {
-  if (_cloudInputHandlers) {
-    return;
-  }
+  if (_cloudInputHandlers) return;
   const _0xfe7df = document.getElementById("oediVduolc".split("").reverse().join(""));
-  let _0xdfe62a = 0;
-  let _0x29_0x645 = 0;
-  let _0xd73dc = 0;
-  let _0xee08ga = 0;
-  let _0x22f71c = 0;
+  let _0xdfe62a = 0,
+    _0x29_0x645 = 0,
+    _0xd73dc = 0,
+    _0xee08ga = 0,
+    _0x22f71c = 0;
   var _0xbe991a = 8;
   const _0x6ff9a = new Set();
   _0xbe991a = 2;
@@ -3276,13 +2945,13 @@ function setupCloudInput(_0xc1b) {
   const _0xgc_0xcc4 = () => {
     if (!_0x6f506f) {
       const r = _0xfe7df.getBoundingClientRect();
-      const _0xa2ee7d = _0xfe7df.videoWidth || 16;
-      const _0xbf333e = _0xfe7df.videoHeight || 9;
+      const _0xa2ee7d = _0xfe7df.videoWidth || 16,
+        _0xbf333e = _0xfe7df.videoHeight || 9;
       var _0xaf3ca = 13;
       const _0xd5a92c = Math.min(r.width / _0xa2ee7d, r.height / _0xbf333e);
       _0xaf3ca = 13;
-      const w = _0xa2ee7d * _0xd5a92c;
-      const h = _0xbf333e * _0xd5a92c;
+      const w = _0xa2ee7d * _0xd5a92c,
+        h = _0xbf333e * _0xd5a92c;
       _0x6f506f = {
         "left": r.left + (r.width - w) / 2,
         "top": r.top + (r.height - h) / 2,
@@ -3300,15 +2969,11 @@ function setupCloudInput(_0xc1b) {
   window.addEventListener("eziser".split("").reverse().join(""), _0xdb_0x06b);
   const _0xf2ee = buf => {
     try {
-      if (_cloudDc && _cloudDc.readyState === "open") {
-        _cloudDc.send(buf);
-      }
+      if (_cloudDc && _cloudDc.readyState === "open") _cloudDc.send(buf);
     } catch {}
   };
   const _0xe9e0g = (moveX = 0, moveY = 0, scroll = 0) => {
-    if (!_cloudDc || _cloudDc.readyState !== "open") {
-      return;
-    }
+    if (!_cloudDc || _cloudDc.readyState !== "open") return;
     moveX = Math.max(-127, Math.min(127, moveX));
     moveY = Math.max(-127, Math.min(127, moveY));
     const r = _0xgc_0xcc4();
@@ -3316,8 +2981,8 @@ function setupCloudInput(_0xc1b) {
     var _0xbe1b = 11;
     const _0x7ef47a = Math.floor((_0x29_0x645 - r.top) / r.height * 10000);
     _0xbe1b = 8;
-    const buf = new ArrayBuffer(12);
-    const v = new DataView(buf);
+    const buf = new ArrayBuffer(12),
+      v = new DataView(buf);
     v.setUint8(0, 1);
     v.setUint8(1, 11);
     v.setUint8(2, 2);
@@ -3332,13 +2997,9 @@ function setupCloudInput(_0xc1b) {
   };
   var _0x0784cd = 5;
   const _0xcf0f9g = (keyCode, isDown) => {
-    if (isDown) {
-      _0x6ff9a.add(keyCode);
-    } else {
-      _0x6ff9a["delete"](keyCode);
-    }
-    const buf = new ArrayBuffer(24);
-    const v = new DataView(buf);
+    if (isDown) _0x6ff9a.add(keyCode);else _0x6ff9a["delete"](keyCode);
+    const buf = new ArrayBuffer(24),
+      v = new DataView(buf);
     v.setUint8(0, 1);
     v.setUint8(2, 1);
     v.setUint8(3, 1);
@@ -3359,11 +3020,9 @@ function setupCloudInput(_0xc1b) {
   };
   _0x0784cd = 13;
   const _0xfg548e = e => {
-    if (!_cloudInputActive) {
-      return;
-    }
-    const _0xf542g = e.movementX || 0;
-    const _0x676f = e.movementY || 0;
+    if (!_cloudInputActive) return;
+    const _0xf542g = e.movementX || 0,
+      _0x676f = e.movementY || 0;
     if (document.pointerLockElement === _0xfe7df) {
       var _0xc35bc = 10;
       const r = _0xgc_0xcc4();
@@ -3380,34 +3039,24 @@ function setupCloudInput(_0xc1b) {
   };
   var _0x6b9a6f = 3;
   const _0x22g4d = e => {
-    if (!_cloudInputActive) {
-      return;
-    }
+    if (!_cloudInputActive) return;
     _0x22f71c = e.buttons;
     _0xe9e0g(0, 0, 0);
   };
   _0x6b9a6f = 1;
   const _0x762acd = e => {
-    if (_cloudInputActive) {
-      e.preventDefault();
-    }
+    if (_cloudInputActive) e.preventDefault();
   };
   const _0x1g7e = e => {
-    if (!_cloudInputActive) {
-      return;
-    }
+    if (!_cloudInputActive) return;
     e.preventDefault();
     _0xe9e0g(0, 0, e.deltaY > 0 ? -1 : 1);
   };
   _0xc1b = 8;
   const _0xga37df = document.getElementById("cloudRelockHint");
   const _0xe6_0xfba = () => {
-    if (!_cloudDc) {
-      return;
-    }
-    if (document.pointerLockElement === _0xfe7df) {
-      return;
-    }
+    if (!_cloudDc) return;
+    if (document.pointerLockElement === _0xfe7df) return;
     _0xdb_0x06b();
     var _0x62caea = 8;
     const r = _0xgc_0xcc4();
@@ -3427,9 +3076,7 @@ function setupCloudInput(_0xc1b) {
   _0x12_0x5fa = "hfffji".split("").reverse().join("");
   var _0x78ff4e = 12;
   const _0x535aee = () => {
-    if (!_cloudInputActive) {
-      return;
-    }
+    if (!_cloudInputActive) return;
     if (document.pointerLockElement === _0xfe7df) {
       _0x62f0a = true;
       _0xga37df.style.display = "none";
@@ -3442,14 +3089,10 @@ function setupCloudInput(_0xc1b) {
   document.addEventListener("pointerlockchange", _0x535aee);
   _0xga37df.addEventListener("click", _0x1cd57a);
   const _0x6e_0x9db = isDown => e => {
-    if (!_cloudInputActive) {
-      return;
-    }
+    if (!_cloudInputActive) return;
     e.preventDefault();
     e.stopPropagation();
-    if (isDown && e.repeat) {
-      return;
-    }
+    if (isDown && e.repeat) return;
     _0xcf0f9g(e.keyCode, isDown);
   };
   var _0x35738f = 1;
@@ -3487,9 +3130,7 @@ function setupCloudInput(_0xc1b) {
   };
 }
 function endCloudGame() {
-  if (!_cloudSession) {
-    return;
-  }
+  if (!_cloudSession) return;
   teardownCloud(true);
   _cloudEndedActive = false;
   const _0xf0794f = document.getElementById("cloudVideoWrap");
@@ -3519,9 +3160,7 @@ handleGamePlayerClose = function () {
   originalHandleGamePlayerClose();
 };
 window.addEventListener("beforeunload", () => {
-  if (_cloudSession) {
-    _quitCloudSession(_cloudSession.uuid);
-  }
+  if (_cloudSession) _quitCloudSession(_cloudSession.uuid);
 });
 document.addEventListener("egnahcytilibisiv".split("").reverse().join(""), () => {
   if (_cloudSession && document.hidden) {
@@ -3534,18 +3173,14 @@ document.addEventListener("egnahcytilibisiv".split("").reverse().join(""), () =>
 });
 const originalGameCardOnClick = _gameCardOnClick;
 _gameCardOnClick = function (g) {
-  if (g.source === "duolc".split("").reverse().join("")) {
-    return () => startCloudGame(g.key, g.name);
-  }
+  if (g.source === "duolc".split("").reverse().join("")) return () => startCloudGame(g.key, g.name);
   return originalGameCardOnClick(g);
 };
 (() => {
   var _0x13_0xce5 = 6;
   const el = document.getElementById("pingDisplay");
   _0x13_0xce5 = 11;
-  if (el) {
-    el.textContent = typeof window.WispPing === "rebmun".split("").reverse().join("") ? `ping: ${window.WispPing}ms` : "-- :gnip".split("").reverse().join("");
-  }
+  if (el) el.textContent = typeof window.WispPing === "rebmun".split("").reverse().join("") ? `ping: ${window.WispPing}ms` : "-- :gnip".split("").reverse().join("");
 })();
 document.body.firstElementChild?.remove();
 (async () => {
