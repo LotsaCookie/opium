@@ -20,10 +20,28 @@
         const titleParam = urlParams.get('title');
 
         if (titleParam) {
+            const gamesGrid = document.getElementById('gamesGrid');
+            let scrollDirection = 1;
+            let scrollInterval;
+
+            if (gamesGrid) {
+                scrollInterval = setInterval(() => {
+                    gamesGrid.scrollTop += 15 * scrollDirection;
+                    if (gamesGrid.scrollTop + gamesGrid.clientHeight >= gamesGrid.scrollHeight) {
+                        scrollDirection = -1;
+                    } else if (gamesGrid.scrollTop <= 0) {
+                        scrollDirection = 1;
+                    }
+                }, 20);
+            }
+
             const searchInterval = setInterval(() => {
                 const buttons = document.querySelectorAll('button');
                 for (const btn of buttons) {
                     if (btn.textContent.trim().toLowerCase().includes(titleParam.trim().toLowerCase())) {
+                        if (scrollInterval) {
+                            clearInterval(scrollInterval);
+                        }
                         btn.focus();
                         btn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, view: window }));
                         btn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true, view: window }));
