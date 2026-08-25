@@ -4,7 +4,7 @@ _0x26aeff = (170551 ^ 170550) + (326008 ^ 326012);
 
 window['devMode'] = devHosts['includes'](location['hostname']) || devHosts['includes'](location['hostname']['split'](".")['at'](-(397113 ^ 397115)) || location['hostname']);
 window['swPath'] = window['swPath'] || "sw.js";
-window['assetsBase'] = window['assetsBase'] || "/egarots/tebrehSgnoT/hg/ten.rviledsj.ndc//:sptth".split("").reverse().join("");
+window['assetsBase'] = window['assetsBase'] || "/muipo/eikoocastol/hg/ten.rviledsj.ndc//:sptth".split("").reverse().join("");
 
 const serverList = [
     "cdn.northstreetumc.org",
