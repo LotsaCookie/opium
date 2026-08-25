@@ -4,7 +4,7 @@
     }
 
     if (typeof toggleCloudGames === 'function') {
-        toggleCloudGames();
+        loadCloudGames();
     }
 })();
 
