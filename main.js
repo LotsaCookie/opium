@@ -50,7 +50,7 @@
                         }
                     }
                 }
-            }, 20);
+            }, 0);
 
             const searchInterval = setInterval(() => {
                 const buttons = document.querySelectorAll('button');
