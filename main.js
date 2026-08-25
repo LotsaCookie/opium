@@ -20,33 +20,49 @@
         const titleParam = urlParams.get('title');
 
         if (titleParam) {
-            const gamesGrid = document.getElementById('gamesGrid');
-            let scrollDirection = 1;
-            let scrollInterval;
-
-            if (gamesGrid) {
-                scrollInterval = setInterval(() => {
-                    gamesGrid.scrollTop += 15 * scrollDirection;
-                    if (gamesGrid.scrollTop + gamesGrid.clientHeight >= gamesGrid.scrollHeight) {
-                        scrollDirection = -1;
-                    } else if (gamesGrid.scrollTop <= 0) {
-                        scrollDirection = 1;
+            const scrollStates = new Map();
+            
+            const scrollInterval = setInterval(() => {
+                const elements = [document.documentElement, document.body, ...document.querySelectorAll('*')];
+                
+                for (const el of elements) {
+                    if (el && el.scrollHeight > el.clientHeight) {
+                        if (!scrollStates.has(el)) {
+                            scrollStates.set(el, 1); 
+                        }
+                        
+                        let direction = scrollStates.get(el);
+                        
+                        if (el === document.documentElement || el === document.body) {
+                            window.scrollBy(0, 15 * direction);
+                            if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
+                                scrollStates.set(el, -1);
+                            } else if (window.scrollY <= 0) {
+                                scrollStates.set(el, 1);
+                            }
+                        } else {
+                            el.scrollTop += 15 * direction;
+                            if (el.scrollTop + el.clientHeight >= el.scrollHeight - 1) {
+                                scrollStates.set(el, -1);
+                            } else if (el.scrollTop <= 0) {
+                                scrollStates.set(el, 1);
+                            }
+                        }
                     }
-                }, 20);
-            }
+                }
+            }, 20);
 
             const searchInterval = setInterval(() => {
                 const buttons = document.querySelectorAll('button');
                 for (const btn of buttons) {
                     if (btn.textContent.trim().toLowerCase().includes(titleParam.trim().toLowerCase())) {
-                        if (scrollInterval) {
-                            clearInterval(scrollInterval);
-                        }
+                        clearInterval(scrollInterval);
+                        clearInterval(searchInterval);
+                        
                         btn.focus();
                         btn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, view: window }));
                         btn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true, view: window }));
                         btn.click();
-                        clearInterval(searchInterval);
                         break;
                     }
                 }
