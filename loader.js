@@ -2,181 +2,9 @@ var _0x26aeff = (668763 ^ 668762) + (558837 ^ 558844);
 const devHosts = ["localhost", "127.0.0.1", "ngrok-free"];
 _0x26aeff = (170551 ^ 170550) + (326008 ^ 326012);
 
-const owner = "lotsacookie";
-const repo = "opium";
-let version = "main"; 
-    
-try {
-     const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`);
-     const data = await response.json();
-     if (data && data[0] && data[0].sha) {
-         version = data[0].sha; 
-    }
-   } catch (error) {
-    console.warn("Could not fetch latest commit from GitHub API, falling back to default.", error);
-}
-
-window['assetsBase'] = `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${version}/`;
-window['devMode'] = devHosts['includes'](location['hostname']) || devHosts['includes'](location['hostname']['split'](".")['at'](-(397113 ^ 397115)) || location['hostname']);
-window['swPath'] = window['swPath'] || "sw.js";
-
-const serverList = [
-    "cdn.northstreetumc.org",
-    "moc.lobtufsrepiv.ndc".split("").reverse().join(""),
-    "cdn.pcesc.org",
-    "cdn.kcchallengevbc.com",
-    "cdn.slcbmooc.org",
-    "wss://girlspreples.org/wi/"
-];
-
-function wispPath() {
-    return "false" !== localStorage['ABDE'] ? "/adblock/" : "/";
-}
-
-function wispUrl(e) {
-    return e['includes']("://") ? e : `wss://${e}${wispPath()}`;
-}
-
-function testWispDomain(e) {
-    return new Promise(t => {
-        let _0x7b9e;
-        let r;
-        _0x7b9e = (404413 ^ 404408) + (563725 ^ 563722);
-        try {
-            r = new WebSocket(wispUrl(e));
-        } catch {
-            t(null);
-            return;
-        }
-        r['binaryType'] = "reffubyarra".split("").reverse().join("");
-        let n = !(221935 ^ 221934),
-            i = 151004 ^ 151004,
-            o = Math['floor'](4294967294 * Math['random']()) + (548343 ^ 548342) >>> (874006 ^ 874006),
-            s = setTimeout(() => {
-                try {
-                    r['close']();
-                } catch {}
-                t(null);
-            }, 242410 ^ 237922),
-            l = e => {
-                clearTimeout(s), r['onmessage'] = r['onerror'] = r['onclose'] = null;
-                try {
-                    r['close']();
-                } catch {}
-                t(e);
-            };
-
-        r['onmessage'] = e => {
-            let t = new DataView(e['data']),
-                s = t['getUint8'](101236 ^ 101236),
-                a = t['getUint32'](633551 ^ 633550, !(282310 ^ 282310));
-            if (!n) {
-                if ((933533 ^ 933528) === s && (860346 ^ 860346) === a) {
-                    r['send'](new Uint8Array([389080 ^ 389085, 496597 ^ 496597, 262563 ^ 262563, 893204 ^ 893204, 220115 ^ 220115, 264074 ^ 264072, 578420 ^ 578421]));
-                } else if ((316357 ^ 316358) === s && (757940 ^ 757940) === a) {
-                    n = !(154822 ^ 154822);
-                    let c = new TextEncoder()['encode']("127.0.0.1"),
-                        d = new ArrayBuffer((513740 ^ 513732) + c['length']),
-                        p = new DataView(d);
-                    p['setUint8'](448416 ^ 448416, 446571 ^ 446570),
-                    p['setUint32'](704976 ^ 704977, o, !(960265 ^ 960265)),
-                    p['setUint8'](686568 ^ 686573, 213153 ^ 213152),
-                    p['setUint16'](984202 ^ 984204, 406161 ^ 406160, !(994103 ^ 994103)),
-                    new Uint8Array(d)['set'](c, 353498 ^ 353490),
-                    i = performance['now'](),
-                    r['send'](d);
-                }
-                return;
-            }
-            a === o && l(Math['round'](performance['now']() - i));
-        }, r['onerror'] = r['onclose'] = () => l(null);
-    });
-}
-
-async function getWisp() {
-    let e = localStorage['WID'],
-        t = +e,
-        r = void(697628 ^ 697628) !== e && "" !== e && Number['isInteger'](t) && t >= (411959 ^ 411959) && t < serverList['length'];
-    if (r) {
-        let n = await testWispDomain(serverList[t]);
-        if (null !== n) return window['WispPing'] = n, wispUrl(serverList[t]);
-    }
-    for (let i = 279332 ^ 279332; i < serverList['length']; i++) {
-        let _0x4aa25e;
-        let o = await testWispDomain(serverList[i]);
-        _0x4aa25e = 'aebede';
-        if (null !== o) return localStorage['WID'] = i, window['WispPing'] = o, wispUrl(serverList[i]);
-    }
-    return wispUrl(serverList[serverList['length'] - (372999 ^ 372998)]);
-}
-
-function preload(e) {
-    var _0x075c = (339634 ^ 339636) + (216460 ^ 216456);
-    let t = document['createElement']("knil".split("").reverse().join(""));
-    _0x075c = (246447 ^ 246447) + (361279 ^ 361275);
-    t['rel'] = "preload",
-    t['as'] = "tpircs".split("").reverse().join(""),
-    t['href'] = e,
-    document['head']['appendChild'](t);
-}
-
-function loadScript(e) {
-    return new Promise((t, r) => {
-        let n = document['createElement']("tpircs".split("").reverse().join(""));
-        n['src'] = e,
-        n['onload'] = () => {
-            n['remove'](), t();
-        },
-        n['onerror'] = () => {
-            n['remove'](), r();
-        },
-        document['head']['appendChild'](n);
-    });
-}
-
-async function initTransport(e) {
-    for (let t = 946610 ^ 946610; t < (415449 ^ 415421); t++) try {
-        await e['init']();
-        return;
-    } catch (r) {
-        if (!String(r)['includes']("wasm not loaded")) throw r;
-        await new Promise(e => setTimeout(e, 300282 ^ 300190));
-    }
-    throw Error("transport init timed out");
-}
-
-window['controller'] = null;
-var _0x26aeff = (668763 ^ 668762) + (558837 ^ 558844);
-const devHosts = ["localhost", "127.0.0.1", "ngrok-free"];
-_0x26aeff = (170551 ^ 170550) + (326008 ^ 326012);
-
 window['devMode'] = devHosts['includes'](location['hostname']) || devHosts['includes'](location['hostname']['split'](".")['at'](-(397113 ^ 397115)) || location['hostname']);
 window['swPath'] = window['swPath'] || "sw.js";
 window['assetsBase'] = window['assetsBase'] || "/muipo/eikoocastol/hg/ten.rviledsj.ndc//:sptth".split("").reverse().join("");
-
-async function updateAssetsBaseWithCommit() {
-    if (window['devMode']) return;
-
-    try {
-        const match = window['assetsBase'].match(/gh\/([^/]+)\/([^/]+)/);
-        if (match) {
-            const owner = match[1];
-            const repo = match[2];
-            
-            const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/main`);
-            if (res.ok) {
-                const data = await res.json();
-                const commitHash = data.sha;
-                
-                window['assetsBase'] = `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${commitHash}/`;
-            }
-        }
-    } catch (error) {
-        console.error("Failed to fetch latest commit, falling back to default assetsBase:", error);
-    }
-}
-
-window['assetsUpdatePromise'] = updateAssetsBaseWithCommit();
 
 const serverList = [
     "cdn.northstreetumc.org",
@@ -307,8 +135,9 @@ window['controller'] = null;
 window['transport'] = null;
 window['shadowRoot'] = null;
 window['getAsset'] = e => {
-    if (window['devMode']) return `${location['protocol']}//${location['hostname']}:${location['port']}/stuff/${e}`;
-    return window['assetsBase'] + e;
+    if (devMode) return `${location['protocol']}//${location['hostname']}:${location['port']}/stuff/${e}`;
+    let t = Math['floor'](Date['now']() / 36e5);
+    return window['assetsBase'] + e + (e['includes']("?") ? "&" : "?") + t;
 };
 
 (async () => {
