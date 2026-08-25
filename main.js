@@ -15,6 +15,24 @@
             cloudToggleBtn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true, view: window }));
             cloudToggleBtn.click();
         }
+
+        setTimeout(() => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const titleParam = urlParams.get('title');
+
+            if (titleParam) {
+                const buttons = document.querySelectorAll('button');
+                for (const btn of buttons) {
+                    if (btn.textContent.trim().toLowerCase().includes(titleParam.trim().toLowerCase())) {
+                        btn.focus();
+                        btn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, view: window }));
+                        btn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true, view: window }));
+                        btn.click();
+                        break;
+                    }
+                }
+            }
+        }, 500);
     }, 500);
 })();
 
