@@ -2,9 +2,23 @@ var _0x26aeff = (668763 ^ 668762) + (558837 ^ 558844);
 const devHosts = ["localhost", "127.0.0.1", "ngrok-free"];
 _0x26aeff = (170551 ^ 170550) + (326008 ^ 326012);
 
+const owner = "lotsacookie";
+const repo = "opium";
+let version = "main"; 
+    
+try {
+     const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`);
+     const data = await response.json();
+     if (data && data[0] && data[0].sha) {
+         version = data[0].sha; 
+    }
+   } catch (error) {
+    console.warn("Could not fetch latest commit from GitHub API, falling back to default.", error);
+}
+
+window['assetsBase'] = `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${version}/`;
 window['devMode'] = devHosts['includes'](location['hostname']) || devHosts['includes'](location['hostname']['split'](".")['at'](-(397113 ^ 397115)) || location['hostname']);
 window['swPath'] = window['swPath'] || "sw.js";
-window['assetsBase'] = window['assetsBase'] || "/muipo/eikoocastol/hg/ten.rviledsj.ndc//:sptth".split("").reverse().join("");
 
 const serverList = [
     "cdn.northstreetumc.org",
