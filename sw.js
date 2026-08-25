@@ -1,1 +1,144 @@
-if(navigator['\u0075\u0073\u0065\u0072\u0041\u0067\u0065\u006E\u0074']['\u0069\u006E\u0063\u006C\u0075\u0064\u0065\u0073']("xoferiF".split("").reverse().join(""))){Object['\u0064\u0065\u0066\u0069\u006E\u0065\u0050\u0072\u006F\u0070\u0065\u0072\u0074\u0079'](globalThis,"detalosInigirOssorc".split("").reverse().join(""),{'\u0076\u0061\u006C\u0075\u0065':!![],"writable":false});}var _0xg896cg=(525359^525350)+(447157^447152);const devMode=["tsohlacol".split("").reverse().join(""),"\u0031\u0032\u0037\u002E\u0030\u002E\u0030\u002E\u0031","\u006E\u0067\u0072\u006F\u006B\u002D\u0066\u0072\u0065\u0065"]['\u0069\u006E\u0063\u006C\u0075\u0064\u0065\u0073'](location['\u0068\u006F\u0073\u0074\u006E\u0061\u006D\u0065']['\u0073\u0070\u006C\u0069\u0074']("\u002E")['\u0061\u0074'](-(478388^478390)));_0xg896cg=(512275^512276)+(681509^681506);function getAsset(path){return devMode?`${location['\u0070\u0072\u006F\u0074\u006F\u0063\u006F\u006C']}//${location['\u0068\u006F\u0073\u0074\u006E\u0061\u006D\u0065']}:${location['\u0070\u006F\u0072\u0074']}/stuff/${path}`:"/egarots/tebrehSgnoT/hg/ten.rviledsj.ndc//:sptth".split("").reverse().join("")+path;}importScripts(getAsset("\u006A\u0065\u0074\u002F\u006A\u0065\u0074\u002E\u0073\u0077\u002E\u006A\u0073"));self['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u0074\u0065\u006E\u0065\u0072']("\u0069\u006E\u0073\u0074\u0061\u006C\u006C",()=>{void self['\u0073\u006B\u0069\u0070\u0057\u0061\u0069\u0074\u0069\u006E\u0067']();});self['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u0074\u0065\u006E\u0065\u0072']("\u0061\u0063\u0074\u0069\u0076\u0061\u0074\u0065",event=>{event['\u0077\u0061\u0069\u0074\u0055\u006E\u0074\u0069\u006C'](self['\u0063\u006C\u0069\u0065\u006E\u0074\u0073']['\u0063\u006C\u0061\u0069\u006D']());});self['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u0074\u0065\u006E\u0065\u0072']("rorre".split("").reverse().join(""),function(event){if(isIdbNotFound(event['\u0065\u0072\u0072\u006F\u0072']??event)){try{event['\u0070\u0072\u0065\u0076\u0065\u006E\u0074\u0044\u0065\u0066\u0061\u0075\u006C\u0074']();}catch{}cleanup();}});self['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u0074\u0065\u006E\u0065\u0072']("\u0075\u006E\u0068\u0061\u006E\u0064\u006C\u0065\u0064\u0072\u0065\u006A\u0065\u0063\u0074\u0069\u006F\u006E",function(event){if(isIdbNotFound(event['\u0072\u0065\u0061\u0073\u006F\u006E']??event)){try{event['\u0070\u0072\u0065\u0076\u0065\u006E\u0074\u0044\u0065\u0066\u0061\u0075\u006C\u0074']();}catch{}cleanup();}});function isIdbNotFound(e){const s=(e?.message??String(e))||"";if(!new RegExp('\u004E\u006F\u0074\u0046\u006F\u0075\u006E\u0064','\u0069')['\u0074\u0065\u0073\u0074'](s))return false;if(new RegExp("ehcac".split("").reverse().join(""),'\u0069')['\u0074\u0065\u0073\u0074'](s))return false;return new RegExp('\u0049\u0044\u0042\u007C\u0049\u006E\u0064\u0065\u0078\u0065\u0064\u0044\u0042\u007C\u0049\u0044\u0042\u0044\u0061\u0074\u0061\u0062\u0061\u0073\u0065\u007C\u0049\u0044\u0042\u004F\u0062\u006A\u0065\u0063\u0074\u0053\u0074\u006F\u0072\u0065\u007C\u0027\u0074\u0072\u0061\u006E\u0073\u0061\u0063\u0074\u0069\u006F\u006E\u0027\u0020\u006F\u006E\u007C\u0027\u006F\u0070\u0065\u006E\u0027\u0020\u006F\u006E\u007C\u0064\u0065\u006C\u0065\u0074\u0065\u0044\u0061\u0074\u0061\u0062\u0061\u0073\u0065\u007C\u006F\u0062\u006A\u0065\u0063\u0074\u0020\u0073\u0074\u006F\u0072\u0065','\u0069')['\u0074\u0065\u0073\u0074'](s);}async function cleanup(){try{let _0xag38dd;const _0xafc=name=>new Promise(res=>{var _0x18313f=(676595^676602)+(943454^943453);const _0x977de=indexedDB['\u006F\u0070\u0065\u006E'](name);_0x18313f=889148^889141;_0x977de['\u006F\u006E\u0073\u0075\u0063\u0063\u0065\u0073\u0073']=()=>{_0x977de['\u0072\u0065\u0073\u0075\u006C\u0074']['\u0063\u006C\u006F\u0073\u0065']();_0xd74c();};_0x977de['\u006F\u006E\u0065\u0072\u0072\u006F\u0072']=_0xd74c;const _0xd74c=()=>{const _0x_0x507=indexedDB['\u0064\u0065\u006C\u0065\u0074\u0065\u0044\u0061\u0074\u0061\u0062\u0061\u0073\u0065'](name);_0x_0x507['\u006F\u006E\u0073\u0075\u0063\u0063\u0065\u0073\u0073']=_0x_0x507['\u006F\u006E\u0065\u0072\u0072\u006F\u0072']=_0x_0x507['\u006F\u006E\u0062\u006C\u006F\u0063\u006B\u0065\u0064']=res;};});_0xag38dd=234206^234206;await _0xafc("rellortnoc_tejmarcs__".split("").reverse().join(""));let _0xa3g;const _0x23dfa=await self['\u0063\u006C\u0069\u0065\u006E\u0074\u0073']['\u006D\u0061\u0074\u0063\u0068\u0041\u006C\u006C']({'\u0074\u0079\u0070\u0065':"\u0077\u0069\u006E\u0064\u006F\u0077","includeUncontrolled":!![]});_0xa3g="dnlqfn".split("").reverse().join("");var _0xc5eac=(454746^454750)+(606716^606708);const _0x461c3f=await caches['\u006B\u0065\u0079\u0073']();_0xc5eac=(130348^130346)+(135926^135926);await Promise['\u0061\u006C\u006C'](_0x461c3f['\u006D\u0061\u0070'](name=>caches['\u0064\u0065\u006C\u0065\u0074\u0065'](name)));await self['\u0072\u0065\u0067\u0069\u0073\u0074\u0072\u0061\u0074\u0069\u006F\u006E']['\u0075\u006E\u0072\u0065\u0067\u0069\u0073\u0074\u0065\u0072']();for(const _0xc4b7e of _0x23dfa)_0xc4b7e['\u006E\u0061\u0076\u0069\u0067\u0061\u0074\u0065'](_0xc4b7e['\u0075\u0072\u006C']);console['\u006C\u006F\u0067']("fles xif ot detpmetta ]ws[".split("").reverse().join(""));}catch(err){console['\u0065\u0072\u0072\u006F\u0072']("\u0066\u0061\u0069\u006C\u0065\u0064\u0020\u0074\u006F\u0020\u0066\u0069\u0078\u003A",err);}}function isNextDnsSslError(e){var _0xf2e91c=(922294^922294)+(904977^904976);const s=(e?.message??String(e))||"";_0xf2e91c=925602^925607;return new RegExp('\u0065\u0072\u0072\u006F\u0072\u0020\u0063\u006F\u0064\u0065\u0020\u0036\u0030','\u0069')['\u0074\u0065\u0073\u0074'](s)||new RegExp('\u0053\u0053\u004C\u0020\u0070\u0065\u0065\u0072\u0020\u0063\u0065\u0072\u0074\u0069\u0066\u0069\u0063\u0061\u0074\u0065','\u0069')['\u0074\u0065\u0073\u0074'](s);}async function headText(res){const _0x6c_0xddg=res['\u0063\u006C\u006F\u006E\u0065']();try{var _0x1e22a=(800409^800413)+(588041^588042);const _0xd4a=_0x6c_0xddg['\u0062\u006F\u0064\u0079']['\u0067\u0065\u0074\u0052\u0065\u0061\u0064\u0065\u0072']();_0x1e22a=(152234^152233)+(407086^407082);const{'\u0076\u0061\u006C\u0075\u0065':value}=await _0xd4a['\u0072\u0065\u0061\u0064']();await _0xd4a['\u0063\u0061\u006E\u0063\u0065\u006C']();return new TextDecoder()['\u0064\u0065\u0063\u006F\u0064\u0065'](value??new Uint8Array());}catch{return"";}}self['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u0074\u0065\u006E\u0065\u0072']("\u0066\u0065\u0074\u0063\u0068",event=>{event['\u0072\u0065\u0073\u0070\u006F\u006E\u0064\u0057\u0069\u0074\u0068']((async()=>{try{if($scramjetController['\u0073\u0068\u006F\u0075\u006C\u0064\u0052\u006F\u0075\u0074\u0065'](event)){const sjRes=await $scramjetController['\u0072\u006F\u0075\u0074\u0065'](event);if(sjRes['\u0073\u0074\u0061\u0074\u0075\u0073']===(306072^305772)&&isNextDnsSslError(await headText(sjRes))){return new Response("\u0062\u006C\u006F\u0063\u006B\u0065\u0064\u0020\u0062\u0079\u0020\u0044\u004E\u0053\u0020\u0066\u006F\u0072\u0020\u0070\u0072\u0069\u0076\u0061\u0063\u0079\u002F\u0073\u0065\u0063\u0075\u0072\u0069\u0074\u0079",{"status":200,"headers":{"\u0043\u006F\u006E\u0074\u0065\u006E\u0074\u002D\u0054\u0079\u0070\u0065":"\u0074\u0065\u0078\u0074\u002F\u0068\u0074\u006D\u006C\u003B\u0020\u0063\u0068\u0061\u0072\u0073\u0065\u0074\u003D\u0075\u0074\u0066\u002D\u0038","Cache-Control":"no-store"}});}return sjRes;}}catch(e){if(isIdbNotFound(e)){cleanup();}}const[,pfx,cid,fid]=new URL(event['\u0072\u0065\u0071\u0075\u0065\u0073\u0074']['\u0075\u0072\u006C'])['\u0070\u0061\u0074\u0068\u006E\u0061\u006D\u0065']['\u0073\u0070\u006C\u0069\u0074']("\u002F");if(pfx==="\u007E"&&cid&&fid){return new Response("\u003C\u0021\u0044\u004F\u0043\u0054\u0059\u0050\u0045\u0020\u0068\u0074\u006D\u006C\u003E\u003C\u0068\u0074\u006D\u006C\u003E\u003C\u0068\u0065\u0061\u0064\u003E\u003C\u006D\u0065\u0074\u0061\u0020\u0063\u0068\u0061\u0072\u0073\u0065\u0074\u003D\u0022\u0075\u0074\u0066\u002D\u0038\u0022\u003E\u003C\u006D\u0065\u0074\u0061\u0020\u0068\u0074\u0074\u0070\u002D\u0065\u0071\u0075\u0069\u0076\u003D\u0022\u0072\u0065\u0066\u0072\u0065\u0073\u0068\u0022\u0020\u0063\u006F\u006E\u0074\u0065\u006E\u0074\u003D\u0022\u0031\u0022\u003E\u003C\u002F\u0068\u0065\u0061\u0064\u003E\u003C\u0062\u006F\u0064\u0079\u0020\u0073\u0074\u0079\u006C\u0065\u003D\u0022\u0066\u006F\u006E\u0074\u003A\u0031\u0036\u0070\u0078\u0020\u0073\u0079\u0073\u0074\u0065\u006D\u002D\u0075\u0069\u003B\u0064\u0069\u0073\u0070\u006C\u0061\u0079\u003A\u0067\u0072\u0069\u0064\u003B\u0070\u006C\u0061\u0063\u0065\u002D\u0069\u0074\u0065\u006D\u0073\u003A\u0063\u0065\u006E\u0074\u0065\u0072\u003B\u0068\u0065\u0069\u0067\u0068\u0074\u003A\u0031\u0030\u0030\u0076\u0068\u0022\u003E\u003C\u0064\u0069\u0076\u003E\u0070\u0072\u006F\u0078\u0079\u0020\u0077\u0061\u0072\u006D\u0069\u006E\u0067\u0020\u0075\u0070\u003C\u002F\u0064\u0069\u0076\u003E\u003C\u002F\u0062\u006F\u0064\u0079\u003E\u003C\u002F\u0068\u0074\u006D\u006C\u003E",{"status":503,'\u0068\u0065\u0061\u0064\u0065\u0072\u0073':{"Content-Type":"\u0074\u0065\u0078\u0074\u002F\u0068\u0074\u006D\u006C\u003B\u0020\u0063\u0068\u0061\u0072\u0073\u0065\u0074\u003D\u0075\u0074\u0066\u002D\u0038","\u0043\u0061\u0063\u0068\u0065\u002D\u0043\u006F\u006E\u0074\u0072\u006F\u006C":"no-store"}});}return fetch(event['\u0072\u0065\u0071\u0075\u0065\u0073\u0074']);return fetch(event['\u0072\u0065\u0071\u0075\u0065\u0073\u0074']);})());});
+if (navigator['userAgent']['includes']("Firefox".split("").reverse().join(""))) {
+    Object['defineProperty'](globalThis, "crossOriginIsolated", {
+        'value': !![],
+        "writable": false
+    });
+}
+
+var _0xg896cg = (525359 ^ 525350) + (447157 ^ 447152);
+const devMode = ["localhost", "127.0.0.1", "ngrok-free"]['includes'](location['hostname']['split'](".")['at'](-2));
+_0xg896cg = (512275 ^ 512276) + (681509 ^ 681506);
+
+function getAsset(path) {
+    return devMode ? `${location['protocol']}//${location['hostname']}:${location['port']}/stuff/${path}` : "/muipo/eikoocastol/hg/ten.rviledsj.ndc//:sptth".split("").reverse().join("") + path;
+}
+
+importScripts(getAsset("jet/jet.sw.js"));
+
+self['addEventListener']("install", () => {
+    void self['skipWaiting']();
+});
+
+self['addEventListener']("activate", event => {
+    event['waitUntil'](self['clients']['claim']());
+});
+
+self['addEventListener']("error", function(event) {
+    if (isIdbNotFound(event['error'] ?? event)) {
+        try {
+            event['preventDefault']();
+        } catch {}
+        cleanup();
+    }
+});
+
+self['addEventListener']("unhandledrejection", function(event) {
+    if (isIdbNotFound(event['reason'] ?? event)) {
+        try {
+            event['preventDefault']();
+        } catch {}
+        cleanup();
+    }
+});
+
+function isIdbNotFound(e) {
+    const s = (e?.message ?? String(e)) || "";
+    if (!new RegExp('NotFound', 'i')['test'](s)) return false;
+    if (new RegExp("cache".split("").reverse().join(""), 'i')['test'](s)) return false;
+    return new RegExp('IDB|IndexedDB|IDBDatabase|IDBObjectStore|\'transaction\' on|\'open\' on|deleteDatabase|object store', 'i')['test'](s);
+}
+
+async function cleanup() {
+    try {
+        let _0xag38dd;
+        const _0xafc = name => new Promise(res => {
+            var _0x18313f = (676595 ^ 676602) + (943454 ^ 943453);
+            const _0x977de = indexedDB['open'](name);
+            _0x18313f = 889148 ^ 889141;
+            _0x977de['onsuccess'] = () => {
+                _0x977de['result']['close']();
+                _0xd74c();
+            };
+            _0x977de['onerror'] = _0xd74c;
+            const _0xd74c = () => {
+                const _0x_0x507 = indexedDB['deleteDatabase'](name);
+                _0x_0x507['onsuccess'] = _0x_0x507['onerror'] = _0x_0x507['onblocked'] = res;
+            };
+        });
+        _0xag38dd = 234206 ^ 234206;
+        await _0xafc("rellortnoc_tejmarcs__".split("").reverse().join(""));
+        let _0xa3g;
+        const _0x23dfa = await self['clients']['matchAll']({
+            'type': "window",
+            "includeUncontrolled": !![]
+        });
+        _0xa3g = "dnlqfn".split("").reverse().join("");
+        var _0xc5eac = (454746 ^ 454750) + (606716 ^ 606708);
+        const _0x461c3f = await caches['keys']();
+        _0xc5eac = (130348 ^ 130346) + (135926 ^ 135926);
+        await Promise['all'](_0x461c3f['map'](name => caches['delete'](name)));
+        await self['registration']['unregister']();
+        for (const _0xc4b7e of _0x23dfa) _0xc4b7e['navigate'](_0xc4b7e['url']);
+        console['log']("fles xif ot detpmetta ]ws[".split("").reverse().join(""));
+    } catch (err) {
+        console['error']("failed to fix:", err);
+    }
+}
+
+function isNextDnsSslError(e) {
+    var _0xf2e91c = (922294 ^ 922294) + (904977 ^ 904976);
+    const s = (e?.message ?? String(e)) || "";
+    _0xf2e91c = 925602 ^ 925607;
+    return new RegExp('error code 60', 'i')['test'](s) || new RegExp('SSL peer certificate', 'i')['test'](s);
+}
+
+async function headText(res) {
+    const _0x6c_0xddg = res['clone']();
+    try {
+        var _0x1e22a = (800409 ^ 800413) + (588041 ^ 588042);
+        const _0xd4a = _0x6c_0xddg['body']['getReader']();
+        _0x1e22a = (152234 ^ 152233) + (407086 ^ 407082);
+        const {
+            'value': value
+        } = await _0xd4a['read']();
+        await _0xd4a['cancel']();
+        return new TextDecoder()['decode'](value ?? new Uint8Array());
+    } catch {
+        return "";
+    }
+}
+
+self['addEventListener']("fetch", event => {
+    event['respondWith']((async () => {
+        try {
+            if ($scramjetController['shouldRoute'](event)) {
+                const sjRes = await $scramjetController['route'](event);
+                if (sjRes['status'] === (306072 ^ 305772) && isNextDnsSslError(await headText(sjRes))) {
+                    return new Response("blocked by DNS for privacy/security", {
+                        "status": 200,
+                        "headers": {
+                            "Content-Type": "text/html; charset=utf-8",
+                            "Cache-Control": "no-store"
+                        }
+                    });
+                }
+                return sjRes;
+            }
+        } catch (e) {
+            if (isIdbNotFound(e)) {
+                cleanup();
+            }
+        }
+        const [, pfx, cid, fid] = new URL(event['request']['url'])['pathname']['split']("/");
+        if (pfx === "~" && cid && fid) {
+            return new Response("<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"1\"></head><body style=\"font:16px system-ui;display:grid;place-items:center;height:100vh\"><div>proxy warning up</div></body></html>", {
+                "status": 503,
+                'headers': {
+                    "Content-Type": "text/html; charset=utf-8",
+                    "Cache-Control": "no-store"
+                }
+            });
+        }
+        return fetch(event['request']);
+    })());
+});
