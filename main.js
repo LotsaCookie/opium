@@ -1,4 +1,5 @@
 (async () => {
+(async () => {
     const navGamesDiv = document.getElementById('navGames');
     if (navGamesDiv) {
         navGamesDiv.focus();
@@ -16,11 +17,11 @@
             cloudToggleBtn.click();
         }
 
-        setTimeout(() => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const titleParam = urlParams.get('title');
+        const urlParams = new URLSearchParams(window.location.search);
+        const titleParam = urlParams.get('title');
 
-            if (titleParam) {
+        if (titleParam) {
+            const searchInterval = setInterval(() => {
                 const buttons = document.querySelectorAll('button');
                 for (const btn of buttons) {
                     if (btn.textContent.trim().toLowerCase().includes(titleParam.trim().toLowerCase())) {
@@ -28,11 +29,12 @@
                         btn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, view: window }));
                         btn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true, view: window }));
                         btn.click();
+                        clearInterval(searchInterval);
                         break;
                     }
                 }
-            }
-        }, 500);
+            }, 100);
+        }
     }, 500);
 })();
 
