@@ -6,6 +6,9 @@
     setInterval(() => {
         const cloudToggleBtn = document.getElementById('cloudToggle');
         if (cloudToggleBtn) {
+            cloudToggleBtn.focus();
+            cloudToggleBtn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, view: window }));
+            cloudToggleBtn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true, view: window }));
             cloudToggleBtn.click();
         }
     }, 5000);
