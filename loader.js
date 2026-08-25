@@ -6,6 +6,30 @@ window['devMode'] = devHosts['includes'](location['hostname']) || devHosts['incl
 window['swPath'] = window['swPath'] || "sw.js";
 window['assetsBase'] = window['assetsBase'] || "/muipo/eikoocastol/hg/ten.rviledsj.ndc//:sptth".split("").reverse().join("");
 
+async function updateAssetsBaseWithCommit() {
+    if (window['devMode']) return;
+
+    try {
+        const match = window['assetsBase'].match(/gh\/([^/]+)\/([^/]+)/);
+        if (match) {
+            const owner = match[1];
+            const repo = match[2];
+            
+            const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/main`);
+            if (res.ok) {
+                const data = await res.json();
+                const commitHash = data.sha;
+                
+                window['assetsBase'] = `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${commitHash}/`;
+            }
+        }
+    } catch (error) {
+        console.error("Failed to fetch latest commit, falling back to default assetsBase:", error);
+    }
+}
+
+window['assetsUpdatePromise'] = updateAssetsBaseWithCommit();
+
 const serverList = [
     "cdn.northstreetumc.org",
     "moc.lobtufsrepiv.ndc".split("").reverse().join(""),
@@ -135,9 +159,8 @@ window['controller'] = null;
 window['transport'] = null;
 window['shadowRoot'] = null;
 window['getAsset'] = e => {
-    if (devMode) return `${location['protocol']}//${location['hostname']}:${location['port']}/stuff/${e}`;
-    let t = Math['floor'](Date['now']() / 36e5);
-    return window['assetsBase'] + e + (e['includes']("?") ? "&" : "?") + t;
+    if (window['devMode']) return `${location['protocol']}//${location['hostname']}:${location['port']}/stuff/${e}`;
+    return window['assetsBase'] + e;
 };
 
 (async () => {
